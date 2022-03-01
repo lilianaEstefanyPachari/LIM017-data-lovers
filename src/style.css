@@ -3,22 +3,68 @@
     text-decoration: none;
 }
 
-.imageHome {
-    border: 1px solid red;
+body {
     width: 100%;
-    max-height: 800px; 
-    background-image:url("https://i.pinimg.com/564x/30/13/27/301327686c2a4214ca74032d25702960.jpg");
-    background-size: cover;
+    max-width: 1000px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,auto);
+    grid-template-areas: "welcome" "movies" "footer";
 }
 
-.information {
-    margin-top: 40%;
-    border: 1px solid #000000;
-    padding: 10px;
-    max-width: 50%;
-    text-align: right;
-    position: right;
+.homePage {
+    grid-area: welcome;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "header header" "image info";
 }
+
+.homePage .nav {
+    grid-area: header;
+}
+
+.homePage .imageHome {
+    grid-area: image;
+}
+.homePage .information{
+    grid-area: info;
+}
+.container {
+    grid-area: movies;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas: "bar" "number" "listmovies";
+}
+
+.container .searchBar{
+    grid-area: bar;
+}
+
+.container .movieNumber{
+    grid-area: number;
+}
+
+.container .listOfMovies{
+    grid-area: listmovies;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "column1 column2 column3 column4";
+}
+
+.container .listOfMovies .group1{
+    grid-area: column1;
+}
+
+footer {
+    grid-area: footer;
+}
+
 .title {
     font-family: 'Lemon', cursive;
     font-size: 25px;
@@ -32,3 +78,4 @@
     color: white;
     font-size: 15px;
 }
+
