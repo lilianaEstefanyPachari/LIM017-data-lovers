@@ -7,3 +7,9 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+// export const searchData = (i) => { 
+//   console.log(i);
+// }
+  
+
