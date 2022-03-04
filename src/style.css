@@ -3,13 +3,14 @@
     text-decoration: none;
 }
 
+
 body {
     width: 100%;
     max-width: 1000px;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(3,auto);
+    grid-template-rows: repeat(4,auto);
     grid-template-areas: "welcome" "movies" "footer";
 }
 
@@ -22,9 +23,8 @@ body {
     background-image: url("img/backgroundHomepage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 85vh;
     width: 100vw;
-
     /* background-position: right center; */
     /* overflow: hidden; */
 }
@@ -51,7 +51,7 @@ body {
 
 .homePage .imageHome {
     grid-area: image;
-    height: 50%;
+    height: 60%;
     display: flex;
     justify-content: center; 
     align-items: flex-end;
@@ -107,7 +107,7 @@ body {
     grid-gap: 5px;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
-    grid-template-areas: "bar" "number" "listmovies";
+    grid-template-areas: "bar" "number" "listmovies" "Movies";
 }
 
 .container .search{
@@ -274,17 +274,51 @@ body {
     top: -19%;
 } 
 
-/* textooo lili, ya fue eliminado el div
-.groupMovie{
-        justify-content: center;
-        align-content: center;
-        display: flex;
-        top: 80%;
-        padding: 5%;
-        margin: 50% 5% 10% 0;
-        
-        height: 100%;
-        /* text-align: center; 
+ */
+
+#Movies {
+    display: none;
+    grid-area: Movies;
+}
+
+ .theMovie {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
+    grid-auto-rows: auto;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; 
+  
+    height: 70vh;
+    width: 70vw; */
+}
+/*
+
+.theMovie .cover{
+    height: 70%;
+    width: 20%;
+    border-radius: 40px;
+    box-shadow: 0px 0px 30px rgba(0,0,0,0.25);
+    position: relative;
+    /* margin: 5% auto; 
+}
+
+.foundMovie .cover:before {
+    content:"";
+    height: 50%;
+    width: 50%;
+    border-radius: 40px;
+    position:absolute;
+    top:0;
+    right:0;
+    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
+}
+
+.foundMovie .cover img{
+    height: 50%;
+    width: 50%;
+    border-radius: 40px;
 } */
 
 footer {
