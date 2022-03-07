@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lemon&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lemon&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section class="homePage">
@@ -18,52 +30,61 @@
         </ul>
       </nav>
       <div class="imageHome">
-        <img src="img/totoro.png" alt="totoro">
+        <img src="img/totoro.png" alt="totoro" />
       </div>
       <div class="information">
         <div class="title">
           <h1>Ghibli Lovers</h1>
         </div>
         <div class="paragraph">
-          <p>Studio Ghibli is a Japanese animation studio, considered by specialized critics and many moviegoers, as one of the best animation studios in the world today.</p>
+          <p>
+            Studio Ghibli is a Japanese animation studio, considered by
+            specialized critics and many moviegoers, as one of the best
+            animation studios in the world today.
+          </p>
         </div>
       </div>
     </section>
     <section class="container">
       <div class="search">
         <div class="searchBar">
-          <input type="text" class="searchText" id="searchMovie" placeholder="Search Movie">
-          <a class="boton" id="btnSearchMovieeee"> <!-- href="" -->
-            <i class="material-icons-outlined" id="btnSearchMovie">
-              search
-            </i>
+          <input
+            type="text"
+            class="searchText"
+            id="searchMovie"
+            placeholder="Search Movie"
+          />
+          <a class="boton" id="btnSearchMovieeee">
+            <!-- href="" -->
+            <i class="material-icons-outlined" id="btnSearchMovie"> search </i>
           </a>
         </div>
+      </div>
+      <div class="filter">
+        <select id="selectOrder" class="">
+          <option selected disabled>A-Z</option>
+          <option value="upward">Ascendente</option>
+          <option value="falling">Descendente</option>
+        </select>
+        <select id="selectYear">
+          <option selected disabled>Año</option>
+          <option value="OrdDesc">Mas recientes</option>
+          <option value="OrdAsc">Mas antiguas</option>
+        </select>
+        <select id="selectScore">
+          <option selected disabled>Score</option>
+          <option value="highestScore">Mayor Score</option>
+          <option value="lowestScore">Menor Score</option>
+        </select>
       </div>
       <div class="movieNumber">
         <h1 id="numberOfMovies"></h1>
       </div>
-      <div class="listOfMovies" id="listOfMovies">
-        <!-- <div class="group1">
-          <div class="cover" id="cover">
-            <img src="img/prueba.jpg" alt="prueba">
-            <p class="name"></p>
-            <p class="year"></p>
-          </div>
-          <div class="coverUp">
-          </div>
-        </div> -->
-        <!--<div class="group2" id="group2"></div> -->
-        <!-- <div class="group3"></div>
-        <div class="group4"></div>  -->
-      </div>
+      <div class="listOfMovies" id="listOfMovies"></div>
       <div class="Movies" id="Movies">
-      <div class="theMovie" id="theMovie" ></div>
-    </div>
+        <div class="theMovie" id="theMovie"></div>
+      </div>
     </section>
-    <!--<section class="foundMovie" id="foundMovieSection">
-      
-    </section> -->
     <footer>
       <h2>Derechos reservados</h2>
     </footer>
