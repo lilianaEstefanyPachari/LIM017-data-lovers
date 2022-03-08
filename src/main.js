@@ -5,20 +5,45 @@
 import data from "./data/ghibli/ghibli.js";
 import { filterData, sortData } from "./data.js";
 
-console.table(sortData(data.films, "release_date", "OrdDesc"));
-console.table(sortData(data.films, "release_date", "OrdAsc"));
-//number of movies
+// console.table(sortData(data.films, "release_date", "OrdDesc"));
+// console.table(sortData(data.films, "release_date", "OrdAsc"));
+
+//el numero de las peliculas
 const numberOfMovies = data.films.length;
-document.getElementById("numberOfMovies").innerHTML =
-  numberOfMovies + " PELICULAS";
+document.getElementById("numberOfMovies").innerHTML = numberOfMovies + " PELICULAS";
 
-//barra de busqueda
-const searchTextValue = document.getElementById("searchMovie").value;
+//definition
 
+/*function showData(place, movies2=data.films){
+  filmsGroup.innerHTML="";
+  if (place ==".listOfMovies"){
+    for (let i of movies2) {
+      filmsGroup.innerHTML+=
+      <div class="cover">
+      </div>
+      const divImgMovie = document.createElement("div");
+      const groupMovie = document.createElement("div");
+      const imgMovie = document.createElement("img");
+      let nameMovie = document.createElement("p");
+      let yearMovie = document.createElement("p");
+      imgMovie.src = i.poster;
+      nameMovie.innerText = i.title;
+      yearMovie.innerText = i.release_date;
+      groupMovie.setAttribute("class", "group2");
+      divImgMovie.setAttribute("class", "cover");
+      nameMovie.setAttribute("class", "name");
+      yearMovie.setAttribute("class", "year");
+      document.querySelector(".listOfMovies").appendChild(groupMovie);
+      groupMovie.appendChild(divImgMovie);
+      divImgMovie.appendChild(imgMovie);
+      divImgMovie.appendChild(nameMovie);
+      divImgMovie.appendChild(yearMovie);
+    } 
+  }
+}*/
+//showData(".listOfMovies");
 
-console.log(filterData(data.films, searchTextValue));
-
-//data
+//jalar  la data general a la interfaz
 let movies2 = data.films;
 for (let i of movies2) {
   const divImgMovie = document.createElement("div");
@@ -40,7 +65,7 @@ for (let i of movies2) {
   divImgMovie.appendChild(yearMovie);
 }
 
-//obtener datos del input text searchMovie y obtener la coincidencia
+//BARRA DE BUSQUEDA,obtener datos del input searchMovie y mostrar la coincidencia
 const searchBtn = document.getElementById("btnSearchMovie");
 searchBtn.addEventListener("click", searching);
 function searching() {
@@ -74,19 +99,28 @@ function searching() {
     divImgMovie.appendChild(yearMovie);
   }
 }
+const yearBotonnn= document.getElementById("selectYear");
+yearBotonnn.addEventListener("click", pruebafun);
+function pruebafun (){
+  let yearSelect= document.getElementById("selectYear").value;
+  console.log(yearSelect);
+}
 
-//obtener filtros de año
+//obtener filtros de AÑO
+
 const yearBoton= document.getElementById("selectYear");
-console.log (yearBoton);
 yearBoton.addEventListener("click", filterFunction);
+let movieGroup=document.querySelector(".theMovie");
 function filterFunction() {
+  if (yearBoton.value == "Año"){return}
+  //if(yearBoton.value == "OrdDesc"){}
   document.getElementById("Movies").style.display = "block";
   document.getElementById("listOfMovies").style.display = "none";
   document.getElementById("numberOfMovies").style.display = "block";
   let yearSelect= document.getElementById("selectYear").value;
   console.log (yearSelect);
-  let filterResultYear = sortData(data.films, "release_date", "OrdDesc");
-  console.table (filterResultYear);
+  
+  let filterResultYear = sortData(data.films, "release_date" , yearSelect);
   for (let i of filterResultYear) {
     const groupMovie = document.createElement("div");
     const divImgMovie = document.createElement("div");
@@ -96,12 +130,11 @@ function filterFunction() {
     imgMovie.src = i.poster;
     nameMovie.innerText = i.title;
     yearMovie.innerText = i.release_date;
-
     groupMovie.setAttribute("class", "group2");
     divImgMovie.setAttribute("class", "cover");
     nameMovie.setAttribute("class", "name");
     yearMovie.setAttribute("class", "year");
-    document.querySelector(".theMovie").appendChild(groupMovie);
+    movieGroup.appendChild(groupMovie);
     groupMovie.appendChild(divImgMovie);
     divImgMovie.appendChild(imgMovie);
     divImgMovie.appendChild(nameMovie);
@@ -123,6 +156,12 @@ function filterFunction() {
 // });
 // console.table(s);
 
+
+
+
+
+/*
+
 console.table(sortData(data.films, "release_date", "OrdAsc"));
 
 //Orden por año de menor a mayor
@@ -137,6 +176,11 @@ let h = movies2.sort(function (a, b) {
 });
 console.table(h);
 console.table(sortData(data.films, "release_date", "OrdDesc"));
+
+
+*/
+
+
 
 // //Orden por
 /*let y = movies2.sort(function (a, b) {
