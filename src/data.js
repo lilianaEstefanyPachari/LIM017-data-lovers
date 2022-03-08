@@ -29,10 +29,15 @@ export const sortData = (data,sortBy,sortOrder) => {
   } 
 };
 
+
+
+
 //console.table(sortData(data.films,"release_date","OrdAsc"));
 //console.table(sortData(data.films,"release_date","OrdDesc"));
 
-//console.log(sortData(movies2,title,"OrdAsc"));
+//console.table(sortData(data.films,"title","OrdAsc"));
+//console.table(sortData(data.films,"title","OrdDesc"));
+
 
 
 export const anotherExample = () => {
