@@ -8,7 +8,7 @@ body {
     width: 100%;
     max-width: 1000px;
     display: grid;
-    grid-gap: 10px;
+    /* grid-column-gap: 10px;  */
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4,auto);
     grid-template-areas: "welcome" "movies" "footer";
@@ -17,16 +17,16 @@ body {
 .homePage {
     grid-area: welcome;
     display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "header header" "image info";
+    grid-template-columns: 6% 47% 47%;
+    grid-template-rows: 8% 92%;
+    grid-template-areas: "header header header" "social image info";
     background-image: url("img/backgroundHomepage.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 85vh;
+    height: 90vh;
     width: 100vw;
-    /* background-position: right center; */
-    /* overflow: hidden; */
+    background-position: right center; 
+    overflow: hidden; 
 }
 
 .homePage .nav {
@@ -51,60 +51,62 @@ body {
 
 .homePage .imageHome {
     grid-area: image;
-    height: 60%;
+    height: 100%;
     display: flex;
-    justify-content: center; 
     align-items: flex-end;
 }
+
 .imageHome img{
-    /* display: flex; */
-    height: 90%; 
-    /* margin:5% 0 0 20%; */
+    width: 53%; 
+    margin-left: 20%;
 }
+
+.socialMedia{
+    grid-area: social;
+    /* width: 20%; */
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.socialMedia img{
+    height:30px;
+    width: 30px;
+    margin-bottom: 30%;
+}
+
 .homePage .information{
-    height: 47%;
     grid-area: info;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
     flex-direction: column;
-    
-    /* padding: 5%; */
-    /* margin: 50% 5% 25% 0; */
-    
-    /* width: 50%; */
-    /* text-align: center; */
-}
-/* .homePage .information{
-    grid-area: info;
+    align-items: left;
     justify-content: center;
-    align-content: center;
-    padding: 5%;
-    margin: 50% 5% 25% 0;
-    /* display: flex; */
-    /* width: 50%; */
-    /* text-align: center; 
-} */
+    padding: 6%; 
+}
+
 .title {
     width: 80%;
     text-align: center;
-    font-size: 2em;
+    font-size: 2.3em;
     font-family: 'Lemon', cursive;
-    font-weight: 125px;
+    font-weight: 100px;
     color: white;
     text-shadow: 0px 6px 20px rgba(0,0,0,0.25);
 }
 .paragraph {
     width: 80%;
     text-align: justify;
-    font-size: 2em;
+    font-size: 1.9em;
+    font-weight: 100px;
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     color: white;
+    background-color: rgba(34, 48, 11, 0.35);
+    border-radius: 15px;    
 }
 .container {
     grid-area: movies;
     display: grid;
-    grid-gap: 5px;
+    
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
     grid-template-areas: "bar" "filtergrid" "number" "listmovies" "Movies";
@@ -124,21 +126,22 @@ body {
     align-content: center;
     align-items: center;
     background: white;
-    width: 400px;
+    width: 450px;
     height: 2.3em;
     padding: 5px;
     border-radius: 15px;
-    border: 0.2em solid #326038;
+    border: 0.2em solid #82B33E;
     margin: 30px;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
 
 .container .search .searchText{
-    width: 350px;
+    width: 400px;
     border: none;
     background: none;
     outline: none;
-    color: #326038;
+    color: #82B33E;
+    font-family:'Montserrat';
     font-size: 20px;
     font-weight: 500;
     float: left;
@@ -149,7 +152,7 @@ body {
     width: 30px;
     height: 30px;
     text-decoration: none;
-    color: #326038;
+    color: #82B33E;
     font-size: 20px;
     display: flex;
     justify-content: center;
@@ -166,6 +169,7 @@ body {
     justify-content: center;
     align-content: center;
     align-items: center;
+    font-family:'Montserrat';
 }
 
 select {
@@ -176,27 +180,28 @@ select {
     cursor: pointer;
     font-weight: 400;
     font-size: 1.3em;
-    color: #326038;
-    border: 0.15em solid #326038;
+    color: #82B33E;
+    border: 0.15em solid #82B33E;
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
   
 option {
-    color: #326038;
+    color: #82B33E;
 }
 
 .container .movieNumber{
     grid-area: number;
-    font-size: 1.4em;
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
+    font-size: 1.7em;
+    font-family: 'Montserrat', bold;
     margin-left: 50px;
-    color: #326038;
+    color: #82B33E;
 }
 
 .container .listOfMovies{
     grid-area: listmovies;
-    margin: 20px;
+    margin: 8px auto 0;
+    padding: 0 30px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
     grid-auto-rows: auto;
@@ -283,7 +288,16 @@ option {
     bottom: 20px;
     left: 20px;
     color:white;
-    font-family:'ZCOOL QingKe HuangYou', cursive;
+    font-family:'Montserrat', bold;
+    font-size: 1em;
+}
+
+.score {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color:white;
+    font-family:'Montserrat', bold;
     font-size: 1em;
 }
 
@@ -355,16 +369,20 @@ footer {
     background-image: url("img/footer.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100px;
+    height: 50px;
     width: 100%;
     background-position: right center;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
 }
+
 h2{
-    margin-top: 30px;
+    /* margin-top: 30px; */
     color: white;
+    font-size: 1.5em;
+    font-weight: 100px;
+    font-family: 'Montserrat', bold;
 }
 

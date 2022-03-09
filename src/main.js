@@ -9,14 +9,16 @@ import { filterData, sortData } from "./data.js";
 // console.table(sortData(data.films, "release_date", "OrdAsc"));
 
 //el numero de las peliculas
-const numberOfMovies = data.films.length;
-document.getElementById("numberOfMovies").innerHTML = numberOfMovies + " PELICULAS";
+function numberMovies(numberMovie){
+const numberOfMovies = numberMovie.length;
+document.getElementById("numberOfMovies").innerHTML = numberOfMovies + " Movies";
+}
 
 //mostrar data con HTML
 let listOfMovies=document.querySelector(".listOfMovies");
 let themovie=document.querySelector(".theMovie");
 let movies2=data.films;
-function showData(movies2=data.films,place){
+function showData(movies2,place){
   listOfMovies.innerHTML="";
   themovie.innerHTML="";
   for (let i of movies2) {
@@ -26,10 +28,12 @@ function showData(movies2=data.films,place){
       <img src=${i.poster}>
       <p class="name">${i.title}</p>
       <p class="year">${i.release_date}</p>
+      <p class="score"> Score: ${i.rt_score}</p>
       </div>
       </div> `;
   } 
 }
+numberMovies(movies2);
 showData(movies2,listOfMovies);
 /*
 //jalar  la data general a la interfaz con appendChild
@@ -63,6 +67,7 @@ function searching() {
   const searchTextValue = document.getElementById("searchMovie").value;
   const filterResult = filterData(data.films, searchTextValue);
   console.log(typeof filterResult);
+  numberMovies(filterResult);
   showData(filterResult,themovie);
   /*for (let i of filterResult) {
     themovie.innerHTML+= `
@@ -110,11 +115,9 @@ function pruebafun (){
 
 const yearBoton= document.getElementById("selectYear");
 yearBoton.addEventListener("click", filterFunction);
-let movieGroup=document.querySelector(".theMovie");
-
 
 function filterFunction() {
-  if (yearBoton.value == "Año"){return}
+  if (yearBoton.value == "Year"){return}
       //if( botonAZ.value == "A-Z"){return}
   document.getElementById("Movies").style.display = "block";
   document.getElementById("listOfMovies").style.display = "none";
@@ -123,7 +126,9 @@ function filterFunction() {
   console.log (yearSelect);
   //let azSelect= document.getElementById("selectOrder").value;
   let filterResultYear = sortData(data.films, "release_date" , yearSelect);
-  for (let i of filterResultYear) {
+  numberMovies(filterResultYear);
+  showData(filterResultYear,themovie);
+  /*for (let i of filterResultYear) {
     const groupMovie = document.createElement("div");
     const divImgMovie = document.createElement("div");
     const imgMovie = document.createElement("img");
@@ -141,27 +146,25 @@ function filterFunction() {
     divImgMovie.appendChild(imgMovie);
     divImgMovie.appendChild(nameMovie);
     divImgMovie.appendChild(yearMovie);
-  }
+  }*/
 }
 
 //obtener filtro de A-Z
 
-//const botonAZ= document.getElementById("selectOrder");
-// botonAZ.addEventListener("click", filterFunction);
+const botonAZ= document.getElementById("selectOrder");
+botonAZ.addEventListener("click", filterFunction2);
 
-
-/*
-function filterFunction() {
-  if (yearBoton.value == "Año"){return}
-      //if( botonAZ.value == "A-Z"){return}
+function filterFunction2() {
+  if( botonAZ.value == "A-Z"){return}
   document.getElementById("Movies").style.display = "block";
   document.getElementById("listOfMovies").style.display = "none";
   document.getElementById("numberOfMovies").style.display = "block";
-  let yearSelect= document.getElementById("selectYear").value;
-  console.log (yearSelect);
-  //let azSelect= document.getElementById("selectOrder").value;
-  let filterResultYear = sortData(data.films, "release_date" , yearSelect);
-  for (let i of filterResultYear) {
+  let azSelect= document.getElementById("selectOrder").value;
+  let filterResultTitle = sortData(data.films, "title" , azSelect);
+  numberMovies(filterResultTitle);
+  showData(filterResultTitle,themovie);
+  /*
+  for (let i of filterResultTitle) {
     const groupMovie = document.createElement("div");
     const divImgMovie = document.createElement("div");
     const imgMovie = document.createElement("img");
@@ -179,16 +182,30 @@ function filterFunction() {
     divImgMovie.appendChild(imgMovie);
     divImgMovie.appendChild(nameMovie);
     divImgMovie.appendChild(yearMovie);
-  }
+  }*/
 }
 
-*/
+//filtro por score
+
+const botonScore= document.getElementById("selectScore");
+botonScore.addEventListener("click", filterFunction3);
+
+function filterFunction3() {
+  if( botonScore.value == "Score"){return}
+  document.getElementById("Movies").style.display = "block";
+  document.getElementById("listOfMovies").style.display = "none";
+  document.getElementById("numberOfMovies").style.display = "block";
+  let scoreSelect= document.getElementById("selectScore").value;
+  let filterResultScore = sortData(data.films, "rt_score" , scoreSelect);
+  numberMovies(filterResultScore);
+  showData(filterResultScore,themovie);
+}
 
 //filtro por nombre de A-Z
-console.table(sortData(data.films,"title","OrdAsc"));
-console.table(sortData(data.films,"title","OrdDesc"));
+// console.table(sortData(data.films,"title","OrdAsc"));
+// console.table(sortData(data.films,"title","OrdDesc"));
 
-//filtro por nombre de A-Z
+//filtro por score
 console.table(sortData(data.films,"rt_score","OrdAsc"));
 console.table(sortData(data.films,"rt_score","OrdDesc"));
 

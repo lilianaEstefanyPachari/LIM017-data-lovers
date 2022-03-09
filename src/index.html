@@ -20,6 +20,10 @@
       href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
+    <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" 
+    rel="stylesheet"
+    />
   </head>
   <body>
     <section class="homePage">
@@ -29,6 +33,11 @@
           <li><a href="#">Discover</a></li>
         </ul>
       </nav>
+      <div class="socialMedia">
+        <img src="img/facebook.png"/>
+        <img src="img/instagram.png"/>
+        <img src="img/ytube.png"/>
+      </div>
       <div class="imageHome">
         <img src="img/totoro.png" alt="totoro" />
       </div>
@@ -63,11 +72,11 @@
       <div class="filter">
         <select id="selectOrder" class="">
           <option selected disabled>A-Z</option>
-          <option value="OrdDesc">Upward</option>
-          <option value="OrdAsc">Falling</option>
+          <option value="OrdAsc">Upward</option>
+          <option value="OrdDesc">Falling</option>
         </select>
         <select id="selectYear">
-          <option selected disabled>Año</option>
+          <option selected disabled>Year</option>
           <option value="OrdDesc">Most Recent</option>
           <option value="OrdAsc">Most Older</option>
         </select>
@@ -78,7 +87,7 @@
         </select>
       </div>
       <div class="movieNumber">
-        <h1 id="numberOfMovies"></h1>
+        <h3 id="numberOfMovies"></h3>
       </div>
       <div class="listOfMovies" id="listOfMovies"></div>
       <div class="Movies" id="Movies">
@@ -86,7 +95,7 @@
       </div>
     </section>
     <footer>
-      <h2>Derechos reservados</h2>
+      <h2>Made by Karina & Liliana</h2>
     </footer>
     <script src="main.js" type="module"></script>
   </body>
