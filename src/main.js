@@ -31,10 +31,18 @@ function showData(movies2,place){
       <p class="score"> Score: ${i.rt_score}</p>
       </div>
       </div> `;
-  } 
+  }
+  if (place.innerHTML===""){
+    place.innerHTML+= `
+    <h1> No se encontro la búsqueda </h1>`;
+  }
 }
 numberMovies(movies2);
 showData(movies2,listOfMovies);
+
+
+
+
 /*
 //jalar  la data general a la interfaz con appendChild
 let movies2 = data.films;
@@ -57,6 +65,7 @@ for (let i of movies2) {
   divImgMovie.appendChild(nameMovie);
   divImgMovie.appendChild(yearMovie);
 }*/
+
 //BARRA DE BUSQUEDA,obtener datos del input searchMovie y mostrar la coincidencia
 const searchBtn = document.getElementById("btnSearchMovie");
 searchBtn.addEventListener("click", searching);
@@ -64,11 +73,13 @@ function searching() {
   document.getElementById("Movies").style.display = "block";
   document.getElementById("listOfMovies").style.display = "none";
   document.getElementById("numberOfMovies").style.display = "block";
-  const searchTextValue = document.getElementById("searchMovie").value;
+  let searchTextValue = document.getElementById("searchMovie").value.toLowerCase();
+  //let searchTextValue2 = searchTextValue.replace(/ /g, "");
   const filterResult = filterData(data.films, searchTextValue);
   console.log(typeof filterResult);
   numberMovies(filterResult);
   showData(filterResult,themovie);
+
   /*for (let i of filterResult) {
     themovie.innerHTML+= `
       <div class="group2">
@@ -100,34 +111,23 @@ function searching() {
     divImgMovie.appendChild(yearMovie);
   }*/
 }
-const yearBotonnn= document.getElementById("selectYear");
-yearBotonnn.addEventListener("click", pruebafun);
-function pruebafun (){
-  let yearSelect= document.getElementById("selectYear").value;
-  console.log(yearSelect);
-}
-
-
-
-
 
 //obtener filtros de AÑO
-
 const yearBoton= document.getElementById("selectYear");
 yearBoton.addEventListener("click", filterFunction);
 
 function filterFunction() {
   if (yearBoton.value == "Year"){return}
-      //if( botonAZ.value == "A-Z"){return}
   document.getElementById("Movies").style.display = "block";
   document.getElementById("listOfMovies").style.display = "none";
   document.getElementById("numberOfMovies").style.display = "block";
   let yearSelect= document.getElementById("selectYear").value;
   console.log (yearSelect);
-  //let azSelect= document.getElementById("selectOrder").value;
+
   let filterResultYear = sortData(data.films, "release_date" , yearSelect);
   numberMovies(filterResultYear);
   showData(filterResultYear,themovie);
+
   /*for (let i of filterResultYear) {
     const groupMovie = document.createElement("div");
     const divImgMovie = document.createElement("div");
@@ -148,6 +148,7 @@ function filterFunction() {
     divImgMovie.appendChild(yearMovie);
   }*/
 }
+
 
 //obtener filtro de A-Z
 
@@ -201,9 +202,30 @@ function filterFunction3() {
   showData(filterResultScore,themovie);
 }
 
-//filtro por nombre de A-Z
-// console.table(sortData(data.films,"title","OrdAsc"));
-// console.table(sortData(data.films,"title","OrdDesc"));
+
+
+
+//funcion no filtrar
+
+const botonDontFilter= document.getElementById("noFilter");
+botonDontFilter.addEventListener("click", dontfilterFunction);
+
+function dontfilterFunction() {
+  // $("#selectScore").load(" #selectScore > *");
+  //$( "#listOfMovies" ).load(window.location.href + " #listOfMovies" );
+  location.reload();
+}
+
+
+
+
+
+
+
+// yearBoton.value == "noFilter";
+//   numberMovies(movies2);
+//   showData(movies2,listOfMovies);
+
 
 //filtro por score
 console.table(sortData(data.films,"rt_score","OrdAsc"));

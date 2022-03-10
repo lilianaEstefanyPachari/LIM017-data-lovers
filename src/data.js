@@ -1,16 +1,16 @@
-// funcion busc
+import data from "./data/ghibli/ghibli.js";
 export const filterData = (data,condition) => {
   let filterMovie = data.filter(searchFunction);
   function searchFunction(item) {
-    if (item.title==condition) {
+    let titleMovie=item.title.toLowerCase();
+    if (titleMovie.indexOf(condition)!==-1) {
       return true;
     }
     return false;
   }
   return filterMovie;
 };
-
-//console.log(filterData(movies2,"Castle in the Sky"));
+console.log(filterData(data.films,"Castle in the Sky"));
 
 export const sortData = (data,sortBy,sortOrder) => {
 
@@ -26,20 +26,5 @@ export const sortData = (data,sortBy,sortOrder) => {
       if(a[sortBy] < b[sortBy]) {return 1; }
       return 0;
     });
-  } 
-};
-
-
-
-
-//console.table(sortData(data.films,"release_date","OrdAsc"));
-//console.table(sortData(data.films,"release_date","OrdDesc"));
-
-//console.table(sortData(data.films,"title","OrdAsc"));
-//console.table(sortData(data.films,"title","OrdDesc"));
-
-
-
-export const anotherExample = () => {
-  return 'OMG';
+  }
 };
