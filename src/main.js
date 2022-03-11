@@ -101,7 +101,7 @@ function showData(movies2,place){
   }
 }
 numberMovies(movies2);
-showData(movies2,listOfMovies);
+showData(movies2,themovie);
 
 
 
@@ -265,47 +265,7 @@ function filterFunction3() {
   showData(filterResultScore,themovie);
 }
 
-const divCover=document.querySelectorAll(".cover");
-divCover.forEach((addDivCover) => {
-  addDivCover.addEventListener("click", clickCover)
-});
 
-
-function clickCover(e) {
-  document.querySelector(".homePage").style.display = "none";
-  document.querySelector(".container").style.display = "none";
-  document.querySelector(".moviePage").style.display = "block";
-  //console.log(selectCover);
-  obtainName(e.target.parentElement);
-  //const objeto={ name:selectCover.querySelector(".name").textContent;}
-  //console.log(movieName);
-  //
-}
-
-function obtainName(objeto){
-  console.log(objeto);
-  const movieName=objeto.querySelector('.name').textContent;
-  console.log(movieName);
-  const filterResult = searchMovieInfo(data.films,movieName);
-  console.log(filterResult);
-  showData(filterResult,infoContainer);
-  // for (let i of filterResult) {
-  //   infoMovie.innerHTML+= `
-  //     <div class="group2">
-  //     <div class="cover">
-  //     <img src=${i.poster}>
-  //     <p class="name">${i.director}</p>
-  //     <p class="year">${i.release_date}</p>
-  //     <p class="score"> Score: ${i.rt_score}</p>
-  //     </div>
-  //     </div> `;
-  // }
-  
-  // if (movieName=="Castle in the Sky"){
-  //   console.log("Yes");
-  // } else{
-  //   console.log("No");}
-}
 
 
 //funcion no filtrar
@@ -450,3 +410,44 @@ document.getElementById("numberOfMovies").style.display = "none";
 
 }
 */
+const divCover=document.querySelectorAll(".cover");
+divCover.forEach((addDivCover) => {
+  addDivCover.addEventListener("click", clickCover)
+});
+
+
+function clickCover(e) {
+  document.querySelector(".homePage").style.display = "none";
+  document.querySelector(".container").style.display = "none";
+  document.querySelector(".moviePage").style.display = "block";
+  //console.log(selectCover);
+  obtainName(e.target);
+  //const objeto={ name:selectCover.querySelector(".name").textContent;}
+  //console.log(movieName);
+  //
+}
+
+function obtainName(objeto){
+  console.log(objeto);
+  const movieName=objeto.querySelector('.name').textContent;
+  console.log(movieName);
+  const filterResult = searchMovieInfo(data.films,movieName);
+  console.log(filterResult);
+  showData(filterResult,infoContainer);
+  // for (let i of filterResult) {
+  //   infoMovie.innerHTML+= `
+  //     <div class="group2">
+  //     <div class="cover">
+  //     <img src=${i.poster}>
+  //     <p class="name">${i.director}</p>
+  //     <p class="year">${i.release_date}</p>
+  //     <p class="score"> Score: ${i.rt_score}</p>
+  //     </div>
+  //     </div> `;
+  // }
+  
+  // if (movieName=="Castle in the Sky"){
+  //   console.log("Yes");
+  // } else{
+  //   console.log("No");}
+}

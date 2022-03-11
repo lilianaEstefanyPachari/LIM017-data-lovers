@@ -201,6 +201,7 @@ option {
 }
 
 .container .listOfMovies{
+    display:none;
     grid-area: listmovies;
     margin: 8px auto 0;
     padding: 0 30px;
@@ -322,7 +323,7 @@ option {
  */
 
 #Movies {
-    display: none;
+    display: block;
     grid-area: Movies;
 }
 
