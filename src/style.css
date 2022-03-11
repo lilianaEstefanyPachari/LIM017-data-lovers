@@ -14,7 +14,7 @@ body {
     /* grid-column-gap: 10px;  */
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4,auto);
-    grid-template-areas: "welcome" "movies" "footer";
+    grid-template-areas: "welcome" "movies" "moviePageInfo" "footer" ;
 }
 
 .homePage {
@@ -32,7 +32,7 @@ body {
     overflow: hidden; 
 }
 
-.homePage .nav {
+.nav {
     grid-area: header;
     height: 2em;
     background: rgba(50, 96, 56, 0.27);
@@ -104,12 +104,11 @@ body {
     font-family: 'ZCOOL QingKe HuangYou', cursive;
     color: white;
     background-color: rgba(34, 48, 11, 0.35);
-    border-radius: 15px;    
+    border-radius: 15px;
 }
 .container {
     grid-area: movies;
     display: grid;
-    
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, auto);
     grid-template-areas: "bar" "filtergrid" "number" "listmovies" "Movies";
@@ -188,7 +187,6 @@ select {
     text-align: center;
     box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
 }
-  
 option {
     color: #82B33E;
 }
@@ -368,6 +366,40 @@ option {
     border-radius: 40px;
 } */
 
+.moviePag{
+    display:none;
+}
+
+/* .movieInformation{
+    grid-area: moviePageInfo;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5,auto);
+    grid-template-areas:"nav" "infoContainer" "people" "locations" "vehicles";
+} */
+
+.nav2 {
+    grid-area: nav;
+    height: 2em;
+    background: rgba(50, 96, 56, 0.27);
+}
+.infoContainer{
+
+
+}
+/* .homePageeee {
+        grid-area: welcome;
+        display:grid;
+        grid-template-columns: 6% 47% 47%;
+        grid-template-rows: 8% 92%;
+        grid-template-areas: "header header header" "social image info";
+} */
+
+
+
+
+
+
 footer {
     grid-area: footer;
     background-image: url("img/footer.jpg");
@@ -389,4 +421,6 @@ h2{
     font-weight: 100px;
     font-family: 'Montserrat', bold;
 }
+
+
 

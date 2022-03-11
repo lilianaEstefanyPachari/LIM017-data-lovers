@@ -3,7 +3,7 @@
 //import data from './data/pokemon/pokemon.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 import data from "./data/ghibli/ghibli.js";
-import { filterData, sortData } from "./data.js";
+import { searchMovieInfo, filterData, sortData } from "./data.js";
 
 // console.table(sortData(data.films, "release_date", "OrdDesc"));
 // console.table(sortData(data.films, "release_date", "OrdAsc"));
@@ -15,23 +15,86 @@ document.getElementById("numberOfMovies").innerHTML = numberOfMovies + " Movies"
 }
 
 //mostrar data con HTML
-let listOfMovies=document.querySelector(".listOfMovies");
-let themovie=document.querySelector(".theMovie");
+const listOfMovies=document.querySelector(".listOfMovies");
+const themovie=document.querySelector(".theMovie");
+const infoContainer=document.querySelector('.infoContainer');
+const people=document.querySelector('.people');
+const locations=document.querySelector('.locations');
+const vehicles=document.querySelector('.vehicles');
 let movies2=data.films;
 function showData(movies2,place){
   listOfMovies.innerHTML="";
   themovie.innerHTML="";
-  for (let i of movies2) {
-    place.innerHTML+= `
-      <div class="group2">
-      <div class="cover">
-      <img src=${i.poster}>
-      <p class="name">${i.title}</p>
-      <p class="year">${i.release_date}</p>
-      <p class="score"> Score: ${i.rt_score}</p>
+  infoContainer.innerHTML="";
+  const persons=movies2[0].people;
+  const locationsMovie=movies2[0].locations;
+  const vehiclesMovie=movies2[0].vehicles;
+  if (place==infoContainer){
+    for (let i of movies2) {
+      place.innerHTML+= `
+      <div>
+      <div class="movieImg">
+      <img src=${i.poster}> 
       </div>
-      </div> `;
+      <div class="infoMovie">
+      <h1 class="titleMovie">${i.title}</h1>
+      <p class="subtitles"> Description: </p> 
+      <p class="parag">${i.description}</p> 
+      <p class="subtitles">Director: </p> 
+      <p class="parag">${i.director}</p> 
+      <p class="subtitles">Producer</p> 
+      <p class="parag">${i.producer}</p> 
+      <p class="subtitles">Release Date</p> 
+      <p class="parag">${i.release_date}</p> 
+      <div class="scoreMovie">
+      <p class="subtitles">Score: </p>
+      <p class="parag">${i.rt_score}</p> 
+      </div>
+      </div>
+      </div>`;
+    }
+    for (let i of persons) {
+      people.innerHTML+= `
+        <div class="group2">
+        <div class="cover">
+        <img src=${i.img}>
+        <p class="name">${i.name}</p>
+        </div>
+        </div> `;
+    }
+    for (let i of locationsMovie) {
+      locations.innerHTML+= `
+        <div class="group2">
+        <div class="cover">
+        <img src=${i.img}>
+        <p class="name">${i.name}</p>
+        </div>
+        </div> `;
+    }
+    for (let i of vehiclesMovie) {
+      vehicles.innerHTML+= `
+        <div class="group2">
+        <div class="cover">
+        <img src=${i.img}>
+        <p class="name">${i.name}</p>
+        </div>
+        </div> `;
+    }
+    
+  } else {
+    for (let i of movies2) {
+      place.innerHTML+= `
+        <div class="group2">
+        <div class="cover">
+        <img src=${i.poster}>
+        <p class="name">${i.title}</p>
+        <p class="year">${i.release_date}</p>
+        <p class="score"> Score: ${i.rt_score}</p>
+        </div>
+        </div> `;
+    }
   }
+  
   if (place.innerHTML===""){
     place.innerHTML+= `
     <h1> No se encontro la búsqueda </h1>`;
@@ -76,7 +139,7 @@ function searching() {
   let searchTextValue = document.getElementById("searchMovie").value.toLowerCase();
   //let searchTextValue2 = searchTextValue.replace(/ /g, "");
   const filterResult = filterData(data.films, searchTextValue);
-  console.log(typeof filterResult);
+  console.log(filterResult);
   numberMovies(filterResult);
   showData(filterResult,themovie);
 
@@ -202,7 +265,47 @@ function filterFunction3() {
   showData(filterResultScore,themovie);
 }
 
+const divCover=document.querySelectorAll(".cover");
+divCover.forEach((addDivCover) => {
+  addDivCover.addEventListener("click", clickCover)
+});
 
+
+function clickCover(e) {
+  document.querySelector(".homePage").style.display = "none";
+  document.querySelector(".container").style.display = "none";
+  document.querySelector(".moviePage").style.display = "block";
+  //console.log(selectCover);
+  obtainName(e.target.parentElement);
+  //const objeto={ name:selectCover.querySelector(".name").textContent;}
+  //console.log(movieName);
+  //
+}
+
+function obtainName(objeto){
+  console.log(objeto);
+  const movieName=objeto.querySelector('.name').textContent;
+  console.log(movieName);
+  const filterResult = searchMovieInfo(data.films,movieName);
+  console.log(filterResult);
+  showData(filterResult,infoContainer);
+  // for (let i of filterResult) {
+  //   infoMovie.innerHTML+= `
+  //     <div class="group2">
+  //     <div class="cover">
+  //     <img src=${i.poster}>
+  //     <p class="name">${i.director}</p>
+  //     <p class="year">${i.release_date}</p>
+  //     <p class="score"> Score: ${i.rt_score}</p>
+  //     </div>
+  //     </div> `;
+  // }
+  
+  // if (movieName=="Castle in the Sky"){
+  //   console.log("Yes");
+  // } else{
+  //   console.log("No");}
+}
 
 
 //funcion no filtrar
