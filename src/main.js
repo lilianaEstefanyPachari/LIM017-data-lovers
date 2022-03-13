@@ -32,34 +32,34 @@ function showData(movies2,place){
   if (place==infoContainer){
     for (let i of movies2) {
       place.innerHTML+= `
-      <div>
-      <div class="movieImg">
-      <img src=${i.poster}> 
-      </div>
-      <div class="infoMovie">
-      <h1 class="titleMovie">${i.title}</h1>
-      <p class="subtitles"> Description: </p> 
-      <p class="parag">${i.description}</p> 
-      <p class="subtitles">Director: </p> 
-      <p class="parag">${i.director}</p> 
-      <p class="subtitles">Producer</p> 
-      <p class="parag">${i.producer}</p> 
-      <p class="subtitles">Release Date</p> 
-      <p class="parag">${i.release_date}</p> 
-      <div class="scoreMovie">
-      <p class="subtitles">Score: </p>
-      <p class="parag">${i.rt_score}</p> 
-      </div>
-      </div>
-      </div>`;
+      
+        <div class="movieImg">
+          <img src=${i.poster}> 
+        </div>
+        <div class="infoMovie">
+          <h3 class="titleMovie">${i.title}</h3>
+          <p class="subtitles"> Description </p> 
+          <p class="parag">${i.description}</p> 
+          <p class="subtitles">Director </p> 
+          <p class="parag">${i.director}</p> 
+          <p class="subtitles">Producer</p> 
+          <p class="parag">${i.producer}</p> 
+          <p class="subtitles">Release Date</p> 
+          <p class="parag">${i.release_date}</p> 
+          <div class="scoreMovie">
+             <p class="subtitles">Score: </p>
+             <p class="parag">${i.rt_score}</p> 
+          </div>
+        </div>`;
     }
     for (let i of persons) {
       people.innerHTML+= `
-        <div class="group2">
-        <div class="cover">
-        <img src=${i.img}>
-        <p class="name">${i.name}</p>
-        </div>
+        <div class="groupInfoItems">
+          <div class="coverInfoItems">
+            <img src=${i.img}>
+            
+          </div>
+          <p class="nameInfoItems">${i.name}</p>
         </div> `;
     }
     for (let i of locationsMovie) {
@@ -69,6 +69,7 @@ function showData(movies2,place){
         <img src=${i.img}>
         <p class="name">${i.name}</p>
         </div>
+        
         </div> `;
     }
     for (let i of vehiclesMovie) {

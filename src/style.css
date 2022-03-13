@@ -1,5 +1,6 @@
 *{
-    margin: 0px;
+    margin: 0;
+    padding: 0;
     text-decoration: none;
 }
 /* #listOfMovies{
@@ -8,8 +9,8 @@
 
 
 body {
-    width: 100%;
-    max-width: 1000px;
+    /* width: 100vh; */
+    /* max-width: 1000px; */
     display: grid;
     /* grid-column-gap: 10px;  */
     grid-template-columns: 1fr;
@@ -371,13 +372,13 @@ option {
     display:none;
 }
 
-/* .movieInformation{
+.movieInformation{
     grid-area: moviePageInfo;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5,auto);
     grid-template-areas:"nav" "infoContainer" "people" "locations" "vehicles";
-} */
+} 
 
 .nav2 {
     grid-area: nav;
@@ -385,9 +386,153 @@ option {
     background: rgba(50, 96, 56, 0.27);
 }
 .infoContainer{
-
-
+    grid-area: infoContainer;
+    height: 88vh;
+    margin: 2% 3%;
+    display: grid;
+    grid-template-columns: 1.5fr 4fr ;
+    grid-template-rows: 100%;
+    grid-template-areas: "movieCover infoMovie";
+    border-radius: 15px;
+    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
 }
+
+.movieImg{
+    /* margin-right: 3%;   */
+    grid-area: movieCover;
+    /* width: 100%; */
+    /* height: 100%; */
+    
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(73, 148, 63, 0.27);
+    border-radius: 15px 0 0 15px;
+    
+}
+.movieImg img{
+    margin: 2px;
+    width: 335px;
+    border-radius: 5%; 
+    
+}
+
+.infoMovie{
+    grid-area: infoMovie;
+    /* margin-left: 20px; */
+    padding: 13px 30px;
+}
+.infoMovie h3{
+    font-size: 2.3em;
+    font-family: 'Lemon', cursive;
+    font-weight: 100px;
+    margin: 2px 0;
+}
+
+.subtitles{
+    margin: 3px 0;
+    font-size: 2em;
+    font-weight: 100px;
+    font-family: 'ZCOOL QingKe HuangYou', cursive;
+}
+
+.parag{
+    font-family:'Montserrat', bold;
+    font-size: 1.1em;
+    text-align: justify;
+    width: 98%;
+}
+
+.titleInfoItems{
+    font-size: 2.2em;
+    font-family: 'Lemon', cursive;
+    font-weight: 100px;
+    margin: 2% 3%;
+}
+.people, .locations, .vehicles{
+    margin: 2% 3%;
+    /* display: grid;
+    grid-template-columns: 1.5fr 4fr ;
+    grid-template-rows: 100%;
+    grid-template-areas: "movieCover infoMovie"; */
+    /* border-radius: 15px;
+    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;  */
+}
+
+.people{
+    grid-area: people;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    grid-auto-rows: auto;
+}
+
+.locations{
+    grid-area: locations;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+    grid-auto-rows: auto;
+}
+
+.vehicles{
+    grid-area: vehicles;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
+    grid-auto-rows: auto;
+}
+
+
+
+
+.groupInfoItems{
+    /* display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
+    grid-auto-rows: auto; 
+     */
+    display:flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
+    margin: 5%;
+    /* height: 100%;
+    width: 100%;  */
+}
+
+.coverInfoItems{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 30px rgb(0 0 0 / 25%);
+    position: relative;
+    margin: 5% auto;
+}
+
+.coverInfoItems:before {
+    content:"";
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    position:absolute;
+    top:0;
+    right:0;
+    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
+}
+
+.coverInfoItems img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.nameInfoItems {
+    font-family:'Lemon', cursive;
+    font-size: 2em;
+    text-align: center;
+}
+
+
 /* .homePageeee {
         grid-area: welcome;
         display:grid;
