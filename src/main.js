@@ -64,21 +64,22 @@ function showData(movies2,place){
     }
     for (let i of locationsMovie) {
       locations.innerHTML+= `
-        <div class="group2">
-        <div class="cover">
-        <img src=${i.img}>
-        <p class="name">${i.name}</p>
-        </div>
-        
+        <div class="groupInfoLocation">
+          <div class="coverLocation" style="background-image: url(${i.img})">
+          </div>
+          <div class="nameOfLocation">
+           <p class="nameItems">${i.name}</p>
+          </div>
         </div> `;
     }
     for (let i of vehiclesMovie) {
       vehicles.innerHTML+= `
-        <div class="group2">
-        <div class="cover">
-        <img src=${i.img}>
-        <p class="name">${i.name}</p>
-        </div>
+        <div class="groupInfoVehicles">
+           <div class="coverVehicles" style="background-image: url(${i.img})">
+           </div>
+           <div class="nameOfVehicles">
+              <p class="nameItems">${i.name}</p>
+           </div>           
         </div> `;
     }
     

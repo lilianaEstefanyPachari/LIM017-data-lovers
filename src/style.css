@@ -368,7 +368,7 @@ option {
     border-radius: 40px;
 } */
 
-.moviePag{
+.moviePage{
     display:none;
 }
 
@@ -452,6 +452,7 @@ option {
 }
 .people, .locations, .vehicles{
     margin: 2% 3%;
+
     /* display: grid;
     grid-template-columns: 1.5fr 4fr ;
     grid-template-rows: 100%;
@@ -496,6 +497,7 @@ option {
     border-radius: 15px;
     box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
     margin: 5%;
+    /* max-width: 560px;  */
     /* height: 100%;
     width: 100%;  */
 }
@@ -531,6 +533,43 @@ option {
     font-size: 2em;
     text-align: center;
 }
+
+
+
+.groupInfoLocation, .groupInfoVehicles{
+    width: 320px;
+    height: 270px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
+    margin: 5%;
+}
+
+.coverLocation, .coverVehicles{
+    width: 100%;
+    height: 75%;
+    background-position: center;
+    background-size: cover;
+    border-radius: 15px 15px 0 0;
+    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+}
+.nameOfLocation, .nameOfVehicles{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+.nameItems {
+    font-family:'Lemon', cursive;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+
 
 
 /* .homePageeee {
