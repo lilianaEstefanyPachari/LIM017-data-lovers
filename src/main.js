@@ -59,7 +59,7 @@ function showData(movies2,place){
             <img src=${i.img}>
             
           </div>
-          <p class="nameInfoItems">${i.name}</p>
+          <p class="nameInfoPeople">${i.name}</p>
         </div> `;
     }
     for (let i of locationsMovie) {

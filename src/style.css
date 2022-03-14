@@ -380,11 +380,48 @@ option {
     grid-template-areas:"nav" "infoContainer" "people" "locations" "vehicles";
 } 
 
-.nav2 {
+.navigation {
     grid-area: nav;
-    height: 2em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 2.5em;
     background: rgba(50, 96, 56, 0.27);
 }
+.navigation .menuu {
+    display: flex;
+}
+.menuu li {
+    list-style: none;
+    padding: 5px 28px;
+}
+.menuu li a {
+    font-size: 1.4em;
+    font-weight: 500;
+    text-decoration: none;
+    color:white;
+    display: inline-block;
+    position: relative;
+    font-family: 'Lato', sans-serif;
+}
+.menuu li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: cadetblue;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.menuu li a:hover::after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
 .infoContainer{
     grid-area: infoContainer;
     height: 88vh;
@@ -528,10 +565,11 @@ option {
     border-radius: 50%;
 }
 
-.nameInfoItems {
+.nameInfoPeople {
     font-family:'Lemon', cursive;
-    font-size: 2em;
+    font-size: 1.7em;
     text-align: center;
+    padding: 9px 5px;
 }
 
 
