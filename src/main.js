@@ -278,7 +278,8 @@ botonDontFilter.addEventListener("click", dontfilterFunction);
 function dontfilterFunction() {
   // $("#selectScore").load(" #selectScore > *");
   //$( "#listOfMovies" ).load(window.location.href + " #listOfMovies" );
-  location.reload();
+  const selectBtn = document.getElementById("selectOrder");
+  selectBtn.options[0].selected="selected"
 }
 
 
@@ -422,7 +423,7 @@ function clickCover(e) {
   document.querySelector(".homePage").style.display = "none";
   document.querySelector(".container").style.display = "none";
   document.querySelector(".moviePage").style.display = "block";
-  //console.log(selectCover);
+  console.log("holaaaaa");
   obtainName(e.target);
   //const objeto={ name:selectCover.querySelector(".name").textContent;}
   //console.log(movieName);
