@@ -1,5 +1,17 @@
-import {filterData, sortData, computeStats, directorStats} from '../src/data.js';
-
+import {filterData, sortData, computeStats, directorStats,searchMovieInfo} from '../src/data.js';
+describe('Test of searchMovieInfo', () => {
+  it('is a function of searchMovieInfo', () => {
+    expect(typeof searchMovieInfo).toBe('function');
+  });
+  it('is a function of searchMovieInfo can search', () => {
+    const films=[
+      {"title": "Castle in the Sky","release_date": "1986"}, {"title": "My Neighbor Totoro","release_date": "1988"},{"title": "Kiki's Delivery Service","release_date": "1989"}
+    ];
+    const resultSearch=[{"title": "Castle in the Sky","release_date": "1986"}];
+    const searchResult = searchMovieInfo(films,"Castle in the Sky");
+    expect(searchResult).toEqual(resultSearch);
+  });
+});
 describe('Test of filterData', () => {
   it('is a function of filterData', () => {
     expect(typeof filterData).toBe('function');
@@ -10,26 +22,17 @@ describe('Test of filterData', () => {
       {"title": "Castle in the Sky","release_date": "1986"}, {"title": "My Neighbor Totoro","release_date": "1988"},{"title": "Kiki's Delivery Service","release_date": "1989"}
     ];
     const resultTitle=[{"title": "Castle in the Sky","release_date": "1986"}];
-    const search=films.title;
-    const filterResult = filterData(search,"Castle in the Sky");
+    const filterResult = filterData(films,"castle");
     expect(filterResult).toEqual(resultTitle);
   });
-
-  /*it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });*/
 });
-
-
 describe('Test of sortData', () => {
   it('is a function of sortData', () => {
     expect(typeof sortData).toBe('function');
   });
-
   const resultOrd=[
     {"title": "Castle in the Sky","release_date": "1986","rt_score": "95"}, {"title": "My Neighbor Totoro","release_date": "1988","rt_score": "93"},{"title": "Kiki's Delivery Service","release_date": "1989","rt_score": "96"}
   ];
-
   it('sortData can orderAscendent A-Z', () => {
     const resultOrdAscAZ=[
       {"title": "Castle in the Sky","release_date": "1986","rt_score": "95"}, {"title": "Kiki's Delivery Service", "release_date": "1989","rt_score": "96"},{"title": "My Neighbor Totoro","release_date": "1988","rt_score": "93"}
@@ -52,7 +55,6 @@ describe('Test of sortData', () => {
     let filterResultScore = sortData(resultOrd, "rt_score" , "OrdAsc");
     expect(filterResultScore).toEqual(resultOrdAscScore);
   });
-  
   it('sortData can orderDescendent score', () => {
     const resultOrdDescScore=[
       {"title": "Kiki's Delivery Service", "release_date": "1989","rt_score": "96"},{"title": "Castle in the Sky","release_date": "1986","rt_score": "95"} ,{"title": "My Neighbor Totoro","release_date": "1988","rt_score": "93"} 
@@ -61,7 +63,6 @@ describe('Test of sortData', () => {
     expect(filterResultDesc).toEqual(resultOrdDescScore);
   });
 });
-
 describe('Test of computeStats', () => {
   it('is a function of computeStats', () => {
     expect(typeof computeStats).toBe('function');
@@ -76,8 +77,6 @@ describe('Test of computeStats', () => {
     expect(topData).toEqual(resultScore);
   });
 });
-
-
 describe('Test of directorStats', () => {
   it('directorStats is a function', () => {
     expect(typeof directorStats).toBe('function');
@@ -91,9 +90,3 @@ describe('Test of directorStats', () => {
     expect(directorDataResult).toEqual(resultDirector);
   });
 });
-
-
-
-
-
-
