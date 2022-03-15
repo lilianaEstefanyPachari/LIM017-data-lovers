@@ -26,10 +26,10 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
         return -1;
       }
-      if (parseInt(a[sortBy]) > parseInt(b[sortBy])) {
-        return 1;
-      }
-      return 0;
+      // if (parseInt(a[sortBy]) > parseInt(b[sortBy])) {
+      //   return 1;
+      // }
+      // return 0;
     });
   }
   if (sortOrder == "OrdDesc" && sortBy === "rt_score") {
@@ -37,10 +37,10 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (parseInt(a[sortBy]) > parseInt(b[sortBy])) {
         return -1;
       }
-      if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
-        return 1;
-      }
-      return 0;
+      // if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
+      //   return 1;
+      // }
+      // return 0;
     });
   }
   if (sortOrder == "OrdAsc" && sortBy !== "rt_score") {
@@ -48,10 +48,10 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (a[sortBy] < b[sortBy]) {
         return -1;
       }
-      if (a[sortBy] > b[sortBy]) {
-        return 1;
-      }
-      return 0;
+      // if (a[sortBy] > b[sortBy]) {
+      //   return 1;
+      // }
+      // return 0;
     });
   }
   if (sortOrder == "OrdDesc" && sortBy !== "rt_score") {
@@ -59,10 +59,10 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (a[sortBy] > b[sortBy]) {
         return -1;
       }
-      if (a[sortBy] < b[sortBy]) {
-        return 1;
-      }
-      return 0;
+      // if (a[sortBy] < b[sortBy]) {
+      //   return 1;
+      // }
+      // return 0;
     });
   }
 };
@@ -70,11 +70,10 @@ export const computeStats = (data, sortBy) => {
   let topValues = data.sort((a, b) => b[sortBy] - a[sortBy]).slice(0, 10);
   return topValues;
 };
-// funcion para ver cantidad de peliculas por productor
 export const directorStats = (data,key)=>{
   const countsDirector = {task:"key"};
   data.forEach((x) => {
     countsDirector[x[key]] = (countsDirector[x[key]] || 0) + 1;
   });
   return countsDirector;
-}
+};
