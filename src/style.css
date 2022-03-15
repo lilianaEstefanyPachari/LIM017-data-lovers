@@ -1,215 +1,261 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 /* #listOfMovies{
     display: block;
 } */
 
-
 body {
-    /* width: 100vh; */
-    /* max-width: 1000px; */
-    display: grid;
-    /* grid-column-gap: 10px;  */
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4,auto);
-    grid-template-areas: "welcome" "movies" "moviePageInfo" "footer" ;
+  /* width: 100vh; */
+  /* max-width: 1000px; */
+  display: grid;
+  /* grid-column-gap: 10px;  */
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas: "welcome" "movies" "moviePageInfo" "dataStatics" "footer";
 }
 
+.dataStatics {
+  display: none;
+  grid-area: dataStatics;
+  height: 100%;
+}
+
+/* .infoData{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    grid-auto-rows: auto;
+} */
+
 .homePage {
-    grid-area: welcome;
-    display:grid;
-    grid-template-columns: 6% 47% 47%;
-    grid-template-rows: 8% 92%;
-    grid-template-areas: "header header header" "social image info";
-    background-image: url("img/backgroundHomepage.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 90vh;
-    width: 100vw;
-    background-position: right center; 
-    overflow: hidden; 
+  grid-area: welcome;
+  display: grid;
+  grid-template-columns: 6% 47% 47%;
+  grid-template-rows: 8% 92%;
+  grid-template-areas: "header header header" "social image info";
+  background-image: url("img/backgroundHomepage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+  background-position: right center;
+  overflow: hidden;
 }
 
 .nav {
-    grid-area: header;
-    height: 2em;
-    background: rgba(50, 96, 56, 0.27);
+  grid-area: header;
+  height: 2em;
+  background: rgba(50, 96, 56, 0.27);
 }
 .menu {
-    list-style: none;
-    float: right;
+  list-style: none;
+  float: right;
 }
 .menu li {
-    display: inline-block;
+  display: inline-block;
+  position: relative;
 }
 .menu li a {
-    /* margin-top: 5px; */
-    color:white;
-    padding: 1.8em;
-    font-size: 1.4em;
-    font-family: 'Lato', sans-serif;
+  /* margin-top: 5px; */
+  color: white;
+  padding: 1.8em;
+  font-size: 1.4em;
+  font-family: "Lato", sans-serif;
+}
+
+.menuVertical {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.349);
+  display: none;
+  list-style: none;
+  text-align: center;
+  font-size: 0.7em;
+}
+
+.menuVertical li a {
+  display: block;
+  color: white;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.menu li:hover .menuVertical {
+  display: block;
 }
 
 .homePage .imageHome {
-    grid-area: image;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
+  grid-area: image;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
-.imageHome img{
-    width: 53%; 
-    margin-left: 20%;
+.imageHome img {
+  width: 53%;
+  margin-left: 20%;
 }
 
-.socialMedia{
-    grid-area: social;
-    display:flex;
-    flex-direction: column;
-    align-items: center; 
+.socialMedia {
+  grid-area: social;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.socialMedia a{
-    color: white;
-    width: 30px;
-    margin-bottom: 30%;
-    font-size: 25px;
+.socialMedia a {
+  color: white;
+  width: 30px;
+  margin-bottom: 30%;
+  font-size: 25px;
 }
 
-.homePage .information{
-    grid-area: info;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
-    padding: 6%; 
+.homePage .information {
+  grid-area: info;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+  padding: 6%;
 }
 
 .title {
-    width: 80%;
-    text-align: center;
-    font-size: 2.3em;
-    font-family: 'Lemon', cursive;
-    font-weight: 100px;
-    color: white;
-    text-shadow: 0px 6px 20px rgba(0,0,0,0.25);
+  width: 80%;
+  text-align: center;
+  font-size: 2.3em;
+  font-family: "Lemon", cursive;
+  font-weight: 100px;
+  color: white;
+  text-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
 }
 .paragraph {
-    width: 80%;
-    text-align: justify;
-    font-size: 1.9em;
-    font-weight: 100px;
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-    color: white;
-    background-color: rgba(34, 48, 11, 0.35);
-    border-radius: 15px;
+  width: 80%;
+  text-align: justify;
+  font-size: 1.9em;
+  font-weight: 100px;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  color: white;
+  background-color: rgba(34, 48, 11, 0.35);
+  border-radius: 15px;
 }
 .container {
-    grid-area: movies;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, auto);
-    grid-template-areas: "bar" "filtergrid" "number" "listmovies" "Movies";
+  grid-area: movies;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-template-areas: "bar" "filtergrid" "number" "listmovies" "Movies";
 }
 
-.container .search{
-    grid-area: bar;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+.container .search {
+  grid-area: bar;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-.container .search .searchBar{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background: white;
-    width: 450px;
-    height: 2.3em;
-    padding: 5px;
-    border-radius: 15px;
-    border: 0.2em solid #82B33E;
-    margin: 30px;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+.container .search .searchBar {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background: white;
+  width: 560px;
+  height: 2.3em;
+  padding: 5px;
+  border-radius: 15px;
+  border: 0.2em solid #82b33e;
+  margin: 30px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.container .search .searchText{
-    width: 400px;
-    border: none;
-    background: none;
-    outline: none;
-    color: #82B33E;
-    font-family:'Montserrat';
-    font-size: 20px;
-    font-weight: 500;
-    float: left;
-    line-height: 10px;
+.container .search .searchText {
+  width: 520px;
+  border: none;
+  background: none;
+  outline: none;
+  color: #82b33e;
+  font-family: "Montserrat";
+  font-size: 20px;
+  font-weight: 500;
+  float: left;
+  line-height: 10px;
 }
 
-.container .search .boton{
-    width: 30px;
-    height: 30px;
-    text-decoration: none;
-    color: #82B33E;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    cursor: pointer;
+.container .search .boton {
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+  color: #82b33e;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-
-.container .filter{
-    grid-area: filtergrid;
-    display: flex;
-    position: relative;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-family:'Montserrat';
+.container .filter {
+  grid-area: filtergrid;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-family: "Montserrat";
 }
 
 select {
-    height: 2em;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-weight: 400;
-    font-size: 1.3em;
-    color: #82B33E;
-    border: 0.15em solid #82B33E;
-    text-align: center;
-    box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  height: 2em;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.3em;
+  color: #82b33e;
+  border: 0.15em solid #82b33e;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 option {
-    color: #82B33E;
+  color: #82b33e;
 }
 
-
-.container .movieNumber{
-    grid-area: number;
-    font-size: 1.7em;
-    font-family: 'Montserrat', bold;
-    margin-left: 50px;
-    color: #82B33E;
+#noFilter {
+  font-family: "Montserrat";
+  border-radius: 15px;
+  color: white;
+  height: 2.3em;
+  padding: 3px;
+  margin: 5px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.1em;
+  border: 0.15em solid #82b33e;
+  background-color: #82b33e;
+  text-align: center;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.container .listOfMovies{
-    display:none;
-    grid-area: listmovies;
-    margin: 8px auto 0;
-    padding: 0 30px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
-    grid-auto-rows: auto;
-    /* display: grid;
+.container .movieNumber {
+  grid-area: number;
+  font-size: 1.7em;
+  font-family: "Montserrat", bold;
+  margin-left: 50px;
+  color: #82b33e;
+}
+
+.container .listOfMovies {
+  display: none;
+  grid-area: listmovies;
+  margin: 8px auto 0;
+  padding: 0 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: auto;
+  /* display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
@@ -239,70 +285,74 @@ option {
     background-size: cover;
     border-radius: 40px;
 } */
-.group2{
-    /* display: grid;
+.group2 {
+  /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
     grid-auto-rows: auto; 
      */
-    /*display:flex;
+  /*display:flex;
     justify-content: center;
     align-content: center;
     flex-direction: column;*/
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
-.cover{
-    height: 90%;
-    width: 90%;
-    border-radius: 40px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.25);
-    position: relative;
-    margin: 5% auto;
+.cover {
+  height: 90%;
+  width: 90%;
+  border-radius: 40px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+  margin: 5% auto;
 }
 
 .cover:before {
-    content:"";
-    height: 100%;
-    width: 100%;
-    border-radius: 40px;
-    position:absolute;
-    top:0;
-    right:0;
-    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(107, 107, 107, 0.03) 48.33%,
+    rgba(46, 47, 46, 0.52) 84.27%
+  );
 }
 
-.cover img{
-    height: 100%;
-    width: 100%;
-    border-radius: 40px;
+.cover img {
+  height: 100%;
+  width: 100%;
+  border-radius: 40px;
 }
 
 .name {
-    position: absolute;
-    bottom:40px;
-    left: 20px;
-    color:white;
-    font-family:'Lemon', cursive;
-    font-size: 1em;
+  position: absolute;
+  bottom: 40px;
+  left: 20px;
+  color: white;
+  font-family: "Lemon", cursive;
+  font-size: 1em;
 }
 
 .year {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color:white;
-    font-family:'Montserrat', bold;
-    font-size: 1em;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-family: "Montserrat", bold;
+  font-size: 1em;
 }
 
 .score {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    color:white;
-    font-family:'Montserrat', bold;
-    font-size: 1em;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  font-family: "Montserrat", bold;
+  font-size: 1em;
 }
 
 /*.container .listOfMovies .group2 .coverUp p{
@@ -319,24 +369,21 @@ option {
     width:80%;
     z-index:2;
     top: -19%;
-} 
-
+}
  */
-
 #Movies {
-    display: block;
-    grid-area: Movies;
+  display: block;
+  grid-area: Movies;
 }
 
- .theMovie {
-    margin: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
-    grid-auto-rows: auto;
-    /* display: flex;
+.theMovie {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: auto;
+  /* display: flex;
     justify-content: center;
-    align-items: center; 
-  
+    align-items: center;
     height: 70vh;
     width: 70vw; */
 }
@@ -368,247 +415,245 @@ option {
     border-radius: 40px;
 } */
 
-.moviePage{
-    display:none;
+.moviePage {
+  display: none;
 }
 
-.movieInformation{
-    grid-area: moviePageInfo;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5,auto);
-    grid-template-areas:"nav" "infoContainer" "people" "locations" "vehicles";
-} 
+.movieInformation {
+  grid-area: moviePageInfo;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas: "nav" "infoContainer" "people" "locations" "vehicles";
+}
 
 .navigation {
-    grid-area: nav;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 2.5em;
-    background: rgba(50, 96, 56, 0.27);
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 2.5em;
+  background: rgba(50, 96, 56, 0.27);
 }
 .navigation .menuu {
-    display: flex;
+  display: flex;
 }
 .menuu li {
-    list-style: none;
-    padding: 5px 28px;
+  list-style: none;
+  padding: 5px 28px;
 }
 .menuu li a {
-    font-size: 1.4em;
-    font-weight: 500;
-    text-decoration: none;
-    color:white;
-    display: inline-block;
-    position: relative;
-    font-family: 'Lato', sans-serif;
+  font-size: 1.4em;
+  font-weight: 500;
+  text-decoration: none;
+  color: white;
+  display: inline-block;
+  position: relative;
+  font-family: "Lato", sans-serif;
 }
 .menuu li a::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: cadetblue;
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: cadetblue;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
 }
-.menuu li a:hover::after{
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
-
-.infoContainer{
-    grid-area: infoContainer;
-    height: 88vh;
-    margin: 2% 3%;
-    display: grid;
-    grid-template-columns: 1.5fr 4fr ;
-    grid-template-rows: 100%;
-    grid-template-areas: "movieCover infoMovie";
-    border-radius: 15px;
-    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
+.menuu li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
 }
 
-.movieImg{
-    /* margin-right: 3%;   */
-    grid-area: movieCover;
-    /* width: 100%; */
-    /* height: 100%; */
-    
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(73, 148, 63, 0.27);
-    border-radius: 15px 0 0 15px;
-    
-}
-.movieImg img{
-    margin: 2px;
-    width: 335px;
-    border-radius: 5%; 
-    
+.infoContainer {
+  grid-area: infoContainer;
+  height: 88vh;
+  margin: 2% 3%;
+  background-image: url("img/backgroundHomepage.jpg");
+  display: grid;
+  grid-template-columns: 1.5fr 4fr;
+  grid-template-rows: 100%;
+  grid-template-areas: "movieCover infoMovie";
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;
 }
 
-.infoMovie{
-    grid-area: infoMovie;
-    /* margin-left: 20px; */
-    padding: 13px 30px;
+.movieImg {
+  /* margin-right: 3%;   */
+  grid-area: movieCover;
+  /* width: 100%; */
+  /* height: 100%; */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(73, 148, 63, 0.27);
+  border-radius: 15px 0 0 15px;
 }
-.infoMovie h3{
-    font-size: 2.3em;
-    font-family: 'Lemon', cursive;
-    font-weight: 100px;
-    margin: 2px 0;
-}
-
-.subtitles{
-    margin: 3px 0;
-    font-size: 2em;
-    font-weight: 100px;
-    font-family: 'ZCOOL QingKe HuangYou', cursive;
-}
-
-.parag{
-    font-family:'Montserrat', bold;
-    font-size: 1.1em;
-    text-align: justify;
-    width: 98%;
+.movieImg img {
+  margin: 2px;
+  width: 335px;
+  border-radius: 5%;
 }
 
-.titleInfoItems{
-    font-size: 2.2em;
-    font-family: 'Lemon', cursive;
-    font-weight: 100px;
-    margin: 2% 3%;
+.infoMovie {
+  grid-area: infoMovie;
+  /* margin-left: 20px; */
+  padding: 13px 30px;
 }
-.people, .locations, .vehicles{
-    margin: 2% 3%;
+.infoMovie h3 {
+  font-size: 2.3em;
+  font-family: "Lemon", cursive;
+  font-weight: 100px;
+  margin: 2px 0;
+}
 
-    /* display: grid;
+.subtitles {
+  margin: 3px 0;
+  font-size: 2em;
+  font-weight: 100px;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+}
+
+.parag {
+  font-family: "Montserrat", bold;
+  font-size: 1.1em;
+  text-align: justify;
+  width: 98%;
+}
+
+.titleInfoItems {
+  font-size: 2.2em;
+  font-family: "Lemon", cursive;
+  font-weight: 100px;
+  margin: 2% 3%;
+}
+.people,
+.locations,
+.vehicles {
+  margin: 2% 3%;
+
+  /* display: grid;
     grid-template-columns: 1.5fr 4fr ;
     grid-template-rows: 100%;
     grid-template-areas: "movieCover infoMovie"; */
-    /* border-radius: 15px;
+  /* border-radius: 15px;
     box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;  */
 }
 
-.people{
-    grid-area: people;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-    grid-auto-rows: auto;
+.people {
+  grid-area: people;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: auto;
 }
 
-.locations{
-    grid-area: locations;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
-    grid-auto-rows: auto;
+.locations {
+  grid-area: locations;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: auto;
 }
 
-.vehicles{
-    grid-area: vehicles;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr));
-    grid-auto-rows: auto;
+.vehicles {
+  grid-area: vehicles;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-rows: auto;
 }
 
-
-
-
-.groupInfoItems{
-    /* display: grid;
+.groupInfoItems {
+  /* display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
     grid-auto-rows: auto; 
      */
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
-    margin: 5%;
-    /* max-width: 560px;  */
-    /* height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;
+  margin: 5%;
+  /* max-width: 560px;  */
+  /* height: 100%;
     width: 100%;  */
 }
 
-.coverInfoItems{
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    box-shadow: 0px 0px 30px rgb(0 0 0 / 25%);
-    position: relative;
-    margin: 5% auto;
+.coverInfoItems {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 30px rgb(0 0 0 / 25%);
+  position: relative;
+  margin: 5% auto;
 }
 
 .coverInfoItems:before {
-    content:"";
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    position:absolute;
-    top:0;
-    right:0;
-    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
+  content: "";
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(107, 107, 107, 0.03) 48.33%,
+    rgba(46, 47, 46, 0.52) 84.27%
+  );
 }
 
-.coverInfoItems img{
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
+.coverInfoItems img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
 }
 
 .nameInfoPeople {
-    font-family:'Lemon', cursive;
-    font-size: 1.7em;
-    text-align: center;
-    padding: 9px 5px;
+  font-family: "Lemon", cursive;
+  font-size: 1.4em;
+  text-align: center;
+  padding: 9px 5px;
 }
 
-
-
-.groupInfoLocation, .groupInfoVehicles{
-    width: 320px;
-    height: 270px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; 
-    margin: 5%;
+.groupInfoLocation,
+.groupInfoVehicles {
+  width: 320px;
+  height: 270px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;
+  margin: 5%;
 }
 
-.coverLocation, .coverVehicles{
-    width: 100%;
-    height: 75%;
-    background-position: center;
-    background-size: cover;
-    border-radius: 15px 15px 0 0;
-    box-shadow: rgba(100,100,111,0.2) 0px 7px 29px 0px;
+.coverLocation,
+.coverVehicles {
+  width: 100%;
+  height: 75%;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px 15px 0 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-.nameOfLocation, .nameOfVehicles{
-    width: 100%;
-    height: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;    
+.nameOfLocation,
+.nameOfVehicles {
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .nameItems {
-    font-family:'Lemon', cursive;
-    font-size: 1.6em;
-    text-align: center;
+  font-family: "Lemon", cursive;
+  font-size: 1.6em;
+  text-align: center;
 }
-
-
-
 
 /* .homePageeee {
         grid-area: welcome;
@@ -618,32 +663,24 @@ option {
         grid-template-areas: "header header header" "social image info";
 } */
 
-
-
-
-
-
 footer {
-    grid-area: footer;
-    background-image: url("img/footer.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 50px;
-    width: 100%;
-    background-position: right center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  grid-area: footer;
+  background-image: url("img/footer.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 100%;
+  background-position: right center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h2{
-    /* margin-top: 30px; */
-    color: white;
-    font-size: 1.5em;
-    font-weight: 100px;
-    font-family: 'Montserrat', bold;
+h2 {
+  /* margin-top: 30px; */
+  color: white;
+  font-size: 1.5em;
+  font-weight: 100px;
+  font-family: "Montserrat", bold;
 }
-
-
-
