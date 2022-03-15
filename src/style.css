@@ -13,8 +13,8 @@ body {
   display: grid;
   /* grid-column-gap: 10px;  */
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, auto);
-  grid-template-areas: "welcome" "movies" "moviePageInfo" "dataStatics" "footer";
+  grid-template-rows: 28px auto auto auto auto;
+  grid-template-areas:"nav" "welcome" "movies" "moviePageInfo" "dataStatics" "footer";
 }
 
 .dataStatics {
@@ -29,25 +29,11 @@ body {
     grid-auto-rows: auto;
 } */
 
-.homePage {
-  grid-area: welcome;
-  display: grid;
-  grid-template-columns: 6% 47% 47%;
-  grid-template-rows: 8% 92%;
-  grid-template-areas: "header header header" "social image info";
-  background-image: url("img/backgroundHomepage.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 90vh;
-  width: 100%;
-  background-position: right center;
-  overflow: hidden;
-}
-
 .nav {
-  grid-area: header;
-  height: 2em;
-  background: rgba(50, 96, 56, 0.27);
+  grid-area: nav; 
+  /* height: 8%; */
+  background: rgba(35, 83, 35, 0.795);
+  position: relative;
 }
 .menu {
   list-style: none;
@@ -72,6 +58,7 @@ body {
   list-style: none;
   text-align: center;
   font-size: 0.7em;
+  /* position: relative; */
 }
 
 .menuVertical li a {
@@ -83,6 +70,21 @@ body {
 
 .menu li:hover .menuVertical {
   display: block;
+}
+
+.homePage {
+  grid-area: welcome;
+  display: grid;
+  grid-template-columns: 6% 47% 47%;
+  grid-template-rows: 100%;
+  grid-template-areas: "social image info";
+  background-image: url("img/backgroundHomepage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+  background-position: right center;
+  overflow: hidden;
 }
 
 .homePage .imageHome {
@@ -423,63 +425,51 @@ option {
   grid-area: moviePageInfo;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(5, auto);
-  grid-template-areas: "nav" "infoContainer" "people" "locations" "vehicles";
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas: "infoFirstView" "people" "locations" "vehicles";
 }
 
-.navigation {
-  grid-area: nav;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 2.5em;
-  background: rgba(50, 96, 56, 0.27);
-}
-.navigation .menuu {
-  display: flex;
-}
-.menuu li {
-  list-style: none;
-  padding: 5px 28px;
-}
-.menuu li a {
-  font-size: 1.4em;
-  font-weight: 500;
-  text-decoration: none;
-  color: white;
-  display: inline-block;
+.infoFirstViewBack{
   position: relative;
-  font-family: "Lato", sans-serif;
+  /* margin: 2% 3%; */
 }
-.menuu li a::after {
+.infoFirstViewBack::before {
   content: "";
   position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
+  top: 0;
   left: 0;
-  background-color: cadetblue;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
-}
-.menuu li a:hover::after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
+  height: 100%;
+  width: 100%;
+  /* border-radius: 15px; */
+  background-image: url("img/backgroundHomepage.jpg");
+  filter: brightness(45%);
+  background-size: cover;
+  background-repeat: no-repeat;
+} 
+
+.infoFirstView{
+  grid-area: infoFirstView;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100%;;
+  grid-template-areas: "infoContainer";
 }
 
 .infoContainer {
   grid-area: infoContainer;
   height: 88vh;
-  margin: 2% 3%;
-  background-image: url("img/backgroundHomepage.jpg");
+  /* margin: 2% 3%; */
+  /* filter: brightness(70%); */
   display: grid;
   grid-template-columns: 1.5fr 4fr;
   grid-template-rows: 100%;
   grid-template-areas: "movieCover infoMovie";
-  border-radius: 15px;
-  box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;
+  /* border-radius: 15px; */
+  /* box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; */
+  position: relative;
 }
+
+
 
 .movieImg {
   /* margin-right: 3%;   */
@@ -490,7 +480,6 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(73, 148, 63, 0.27);
   border-radius: 15px 0 0 15px;
 }
 .movieImg img {
@@ -507,14 +496,17 @@ option {
 .infoMovie h3 {
   font-size: 2.3em;
   font-family: "Lemon", cursive;
-  font-weight: 100px;
   margin: 2px 0;
+}
+
+.infoMovie h3, p,.scoreMovie{
+  color: white;
+  font-weight: 650;
 }
 
 .subtitles {
   margin: 3px 0;
   font-size: 2em;
-  font-weight: 100px;
   font-family: "ZCOOL QingKe HuangYou", cursive;
 }
 
@@ -535,13 +527,6 @@ option {
 .locations,
 .vehicles {
   margin: 2% 3%;
-
-  /* display: grid;
-    grid-template-columns: 1.5fr 4fr ;
-    grid-template-rows: 100%;
-    grid-template-areas: "movieCover infoMovie"; */
-  /* border-radius: 15px;
-    box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;  */
 }
 
 .people {
@@ -566,21 +551,31 @@ option {
 }
 
 .groupInfoItems {
-  /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
-    grid-auto-rows: auto; 
-     */
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   border-radius: 15px;
-  box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc;
+  /* box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; */
   margin: 5%;
-  /* max-width: 560px;  */
-  /* height: 100%;
-    width: 100%;  */
+  position: relative;
 }
+.nameinside{
+  position: relative;
+}
+
+.groupInfoItems::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  /* background-image: url("img/backgroundHomepage.jpg"); */
+  background-color:rgba(73, 148, 63, 0.27);
+  filter: brightness(35%);
+} 
 
 .coverInfoItems {
   height: 200px;
@@ -591,7 +586,7 @@ option {
   margin: 5% auto;
 }
 
-.coverInfoItems:before {
+/* .coverInfoItems:before {
   content: "";
   height: 100%;
   width: 100%;
@@ -604,7 +599,7 @@ option {
     rgba(107, 107, 107, 0.03) 48.33%,
     rgba(46, 47, 46, 0.52) 84.27%
   );
-}
+} */
 
 .coverInfoItems img {
   height: 100%;
@@ -613,10 +608,11 @@ option {
 }
 
 .nameInfoPeople {
-  font-family: "Lemon", cursive;
-  font-size: 1.4em;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  font-size: 1.5em;
   text-align: center;
   padding: 9px 5px;
+  color: black;
 }
 
 .groupInfoLocation,
@@ -648,20 +644,14 @@ option {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 .nameItems {
-  font-family: "Lemon", cursive;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
   font-size: 1.6em;
   text-align: center;
+  color: black;
 }
-
-/* .homePageeee {
-        grid-area: welcome;
-        display:grid;
-        grid-template-columns: 6% 47% 47%;
-        grid-template-rows: 8% 92%;
-        grid-template-areas: "header header header" "social image info";
-} */
 
 footer {
   grid-area: footer;

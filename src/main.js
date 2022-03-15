@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 //import { example } from "./data.js";
 // import data from './data/lol/lol.js';
 //import data from './data/pokemon/pokemon.js';
 // import data from './data/rickandmorty/rickandmorty.js';
 import data from "./data/ghibli/ghibli.js";
-import { searchMovieInfo, filterData, sortData, computeStats } from "./data.js";
+import { searchMovieInfo, filterData, sortData, computeStats, directorStats } from "./data.js";
 
 // console.table(sortData(data.films, "release_date", "OrdDesc"));
 // console.table(sortData(data.films, "release_date", "OrdAsc"));
@@ -23,6 +24,7 @@ const infoData = document.querySelector(".infoData");
 const people = document.querySelector(".people");
 const locations = document.querySelector(".locations");
 const vehicles = document.querySelector(".vehicles");
+//const chartData = document.querySelector(".chartData");
 
 let movies2 = data.films;
 function showData(movies2, place) {
@@ -62,7 +64,9 @@ function showData(movies2, place) {
                 <div class="coverInfoItems">
                   <img src=${i.img}>
                 </div>
-                <p class="nameInfoPeople">${i.name}</p>
+                <div class="nameinside">
+                 <p class="nameInfoPeople">${i.name}</p>
+                </div>
               </div> `;
       }
       for (let i of locationsMovie) {
@@ -481,3 +485,36 @@ function dataTop() {
 }
 
 // console.table(dataTop());
+
+
+
+//llamando a la funcion para estadistica por productores
+const directorData = directorStats(data.films,"director");
+console.log(directorData);
+// directorData.task="director";
+// console.log(directorData);
+const entries = Object.entries(directorData);
+console.log(entries);
+
+
+//Data Table
+const dataMovies = document.getElementById("dataMovies");
+dataMovies.addEventListener("click", dataTop2);
+
+function dataTop2() {
+console.log("confe");
+document.querySelector(".container").style.display = "none";
+  document.querySelector(".dataStatics").style.display = "block";
+  google.charts.load("current", {packages:["corechart"]});
+  google.charts.setOnLoadCallback(drawChart);
+}
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable(entries);
+    // [['Task', 'Hours per Day'],['Work',     11],['Eat',      2],['Commute',  2],['Watch TV', 2],['Sleep',    7]]
+  var options = {
+     title: 'My Daily Activities',
+     pieHole: 0.4,
+     };
+  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  chart.draw(data, options);}
