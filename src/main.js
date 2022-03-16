@@ -93,13 +93,16 @@ function showData(movies2, place) {
     case infoData:
       for (let i of movies2) {
         place.innerHTML += `
-        <div class="movieImg">
+        <div class="movieTop">
         <img src=${i.poster}>
-      </div>
-      <div class="infoMovie">
-        <h3 class="titleMovie">${i.title}</h3>
-        <p class="subtitles"> Description </p>
-        <p class="parag">${i.description}</p>`;
+        <div class="infoTop">
+        <h3 class="titleTop">${i.release_date} | ${i.title}</h3>
+        <p class="textMovie">${i.description}</p>
+        </div>
+        <div class="scoreMovie2">
+        <p> Score: ${i.rt_score}</p>
+        </div>
+        </div>`;
       }
       break;
     default:
@@ -480,9 +483,12 @@ function dataTop() {
   console.log("holaaasdasd");
   document.querySelector(".container").style.display = "none";
   document.querySelector(".dataStatics").style.display = "block";
+  document.querySelector(".chartData").style.display = "none";
+  document.querySelector(".moviePage").style.display = "none";
   const topData = computeStats(data.films, "rt_score");
   showData(topData, infoData);
 }
+
 
 // console.table(dataTop());
 
@@ -490,13 +496,11 @@ function dataTop() {
 
 //llamando a la funcion para estadistica por productores
 const directorData = directorStats(data.films,"director");
-console.log(directorData);
+const producerData = directorStats(data.films,"producer");
 // directorData.task="director";
 // console.log(directorData);
 const entries = Object.entries(directorData);
-console.log(entries);
-
-
+const entriesProducer = Object.entries(producerData);
 //Data Table
 const dataMovies = document.getElementById("dataMovies");
 dataMovies.addEventListener("click", dataTop2);
@@ -504,17 +508,26 @@ dataMovies.addEventListener("click", dataTop2);
 function dataTop2() {
 console.log("confe");
 document.querySelector(".container").style.display = "none";
-  document.querySelector(".dataStatics").style.display = "block";
+  document.querySelector(".chartData").style.display = "block";
+  document.querySelector(".dataStatics").style.display = "none";
+  document.querySelector(".moviePage").style.display = "none";
   google.charts.load("current", {packages:["corechart"]});
   google.charts.setOnLoadCallback(drawChart);
 }
 
 function drawChart() {
   var data = google.visualization.arrayToDataTable(entries);
-    // [['Task', 'Hours per Day'],['Work',     11],['Eat',      2],['Commute',  2],['Watch TV', 2],['Sleep',    7]]
+  var dataProducer = google.visualization.arrayToDataTable(entriesProducer);
   var options = {
-     title: 'My Daily Activities',
+     title: 'Directors who produce a Guibli film',
      pieHole: 0.4,
      };
+  var optionsProducer = {
+    title: 'Producers who produce a Guibli film',
+    pieHole: 0.4,
+  };
   var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
-  chart.draw(data, options);}
+  chart.draw(data, options);
+  var chartProducer = new google.visualization.PieChart(document.getElementById('donutchartProducer'));
+  chartProducer.draw(dataProducer, optionsProducer);
+}

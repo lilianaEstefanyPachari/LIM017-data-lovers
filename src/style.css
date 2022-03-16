@@ -13,8 +13,8 @@ body {
   display: grid;
   /* grid-column-gap: 10px;  */
   grid-template-columns: 1fr;
-  grid-template-rows: 28px auto auto auto auto;
-  grid-template-areas:"nav" "welcome" "movies" "moviePageInfo" "dataStatics" "footer";
+  grid-template-rows: 28px auto auto auto auto auto auto;
+  grid-template-areas:"nav" "welcome" "movies" "moviePageInfo" "dataStatics" "chartData""footer";
 }
 
 .dataStatics {
@@ -23,6 +23,25 @@ body {
   height: 100%;
 }
 
+.chartData{
+  display: none;
+  grid-area: chartData;
+}
+
+.chartData2{
+  display: flex;
+  flex-direction:row;
+}
+
+#donutchart{
+  width: 50%; 
+  height: 500px;
+}
+
+#donutchartProducer{
+  width: 50%; 
+  height: 500px;
+}
 /* .infoData{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -32,8 +51,9 @@ body {
 .nav {
   grid-area: nav; 
   /* height: 8%; */
-  background: rgba(35, 83, 35, 0.795);
+  background: #82b33e;
   position: relative;
+  z-index:2;
 }
 .menu {
   list-style: none;
@@ -117,7 +137,7 @@ body {
   grid-area: info;
   display: flex;
   flex-direction: column;
-  align-items: left;
+
   justify-content: center;
   padding: 6%;
 }
@@ -127,7 +147,6 @@ body {
   text-align: center;
   font-size: 2.3em;
   font-family: "Lemon", cursive;
-  font-weight: 100px;
   color: white;
   text-shadow: 0px 6px 20px rgba(0, 0, 0, 0.25);
 }
@@ -135,7 +154,6 @@ body {
   width: 80%;
   text-align: justify;
   font-size: 1.9em;
-  font-weight: 100px;
   font-family: "ZCOOL QingKe HuangYou", cursive;
   color: white;
   background-color: rgba(34, 48, 11, 0.35);
@@ -163,7 +181,7 @@ body {
   align-content: center;
   align-items: center;
   background: white;
-  width: 560px;
+  /* width: 560px; */
   height: 2.3em;
   padding: 5px;
   border-radius: 15px;
@@ -431,6 +449,7 @@ option {
 
 .infoFirstViewBack{
   position: relative;
+  z-index:1;
   /* margin: 2% 3%; */
 }
 .infoFirstViewBack::before {
@@ -520,7 +539,6 @@ option {
 .titleInfoItems {
   font-size: 2.2em;
   font-family: "Lemon", cursive;
-  font-weight: 100px;
   margin: 2% 3%;
 }
 .people,
@@ -653,6 +671,62 @@ option {
   color: black;
 }
 
+.movieTop{
+  width: 80%;
+  margin: 20px 120px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 0.2em solid #82b33e;
+  display:flex;
+  flex-direction: row;
+}
+
+.movieTop img{
+  width: 20%;
+  border-radius: 15px;
+}
+
+.infoTop{
+  width: 65%;
+  margin-left:20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleTop{
+  font-family: "Lemon", cursive;
+  font-size: 1.6em;
+  color:  #82b33e;
+}
+
+.titleTop2{
+  margin-top:20px;
+  font-family: "Lemon", cursive;
+  font-size: 2.5em;
+  color:  #82b33e;
+  text-align:center;
+}
+
+.textMovie{
+  font-family: "Montserrat";
+  font-size: 1em;
+  color: black;
+  text-align: justify;
+}
+
+.scoreMovie2{
+  margin-left:20px;
+  margin-top:30px;
+  border-radius: 15px;
+  border: 0.2em solid #82b33e;
+  background-color:#82b33e;
+  padding: 10px;
+  height:20px;
+  font-family: "Montserrat";
+  color: white;
+}
+
 footer {
   grid-area: footer;
   background-image: url("img/footer.jpg");
@@ -673,4 +747,82 @@ h2 {
   font-size: 1.5em;
   font-weight: 100px;
   font-family: "Montserrat", bold;
+}
+
+@media only screen and (max-width:600px){
+  .menu {
+    float:none;
+    display: flex;
+    justify-content: space-between;
+ }
+ .homePage {
+  grid-area: welcome;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(img/backgroundHomepage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 90vh;
+  width: 100%;
+  background-position: center;
+  overflow: hidden;
+}
+.socialMedia {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+.socialMedia a {
+  color: white;
+  margin: 15px;
+  font-size: 25px;
+}
+.homePage .imageHome {
+  height: 35%;
+  display: flex;
+  justify-content: center;
+}
+.imageHome img {
+  /* height: 0;ffffff fe ddsdnnsd   */
+  width: 36%;
+  margin-left: 0;
+  margin-bottom: 15px;
+}
+
+.homePage .information {
+  /* grid-area: info; lll jjjj*/
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8%;
+}
+.title {
+  /* width: 80%; ggghdffdfnhgn*/
+  text-align: center;
+  font-size: 2.3em;
+  font-family: "Lemon", cursive;
+  color: white;
+  text-shadow: 0px 6px 20px rgb(0 0 0 / 25%);
+  width: 100%;
+}
+.paragraph {
+  /* width: 80%; ddsfdgbgbgfddddsdffdfddfdb*/
+  width: 100%;
+  text-align: justify;
+  font-size: 2.5em;
+  font-family: "ZCOOL QingKe HuangYou", cursive;
+  color: white;
+  background-color: rgba(15, 15, 14, 0.35);
+  border-radius: 15px;
+}
+
+.container .search .searchBar {
+  width: 80%;
+  justify-content: space-between;
+}
+.container .search .searchText {
+    width: 70%;}
+  
 }
