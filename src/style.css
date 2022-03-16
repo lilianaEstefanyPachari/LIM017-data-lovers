@@ -3,15 +3,8 @@
   padding: 0;
   text-decoration: none;
 }
-/* #listOfMovies{
-    display: block;
-} */
-
 body {
-  /* width: 100vh; */
-  /* max-width: 1000px; */
   display: grid;
-  /* grid-column-gap: 10px;  */
   grid-template-columns: 1fr;
   grid-template-rows: 28px auto auto auto auto auto auto;
   grid-template-areas:"nav" "welcome" "movies" "moviePageInfo" "dataStatics" "chartData""footer";
@@ -42,15 +35,9 @@ body {
   width: 50%; 
   height: 500px;
 }
-/* .infoData{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    grid-auto-rows: auto;
-} */
 
 .nav {
   grid-area: nav; 
-  /* height: 8%; */
   background: #82b33e;
   position: relative;
   z-index:2;
@@ -64,7 +51,6 @@ body {
   position: relative;
 }
 .menu li a {
-  /* margin-top: 5px; */
   color: white;
   padding: 1.8em;
   font-size: 1.4em;
@@ -78,7 +64,6 @@ body {
   list-style: none;
   text-align: center;
   font-size: 0.7em;
-  /* position: relative; */
 }
 
 .menuVertical li a {
@@ -120,6 +105,7 @@ body {
 }
 
 .socialMedia {
+  margin-top: 15px;
   grid-area: social;
   display: flex;
   flex-direction: column;
@@ -181,7 +167,6 @@ body {
   align-content: center;
   align-items: center;
   background: white;
-  /* width: 560px; */
   height: 2.3em;
   padding: 5px;
   border-radius: 15px;
@@ -275,45 +260,9 @@ option {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-rows: auto;
-  /* display: grid;
-    grid-gap: 5px;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr;
-    grid-template-areas: "column1 column2 column3 column4"; */
 }
 
-/* .container .listOfMovies .group1{
-    grid-area: column1;
-    display:flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-}
-
-.container .listOfMovies .group1 .cover{
-    margin: 20px;
-    height: 400px;
-    width: 80%;
-    border-radius: 40px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.25);
-    z-index:1;
-}
-
-.container .listOfMovies .group1 .cover img{
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    border-radius: 40px;
-} */
 .group2 {
-  /* display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px,1fr)); 
-    grid-auto-rows: auto; 
-     */
-  /*display:flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;*/
   height: 100%;
   width: 100%;
 }
@@ -375,22 +324,6 @@ option {
   font-size: 1em;
 }
 
-/*.container .listOfMovies .group2 .coverUp p{
-    z-index:3;
-    top: -50px;
-}
-
-.container .listOfMovies .group2 .coverUp{
-    position:relative;
-    border-radius: 40px;
-    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
-    background-size: cover;
-    height: 400px;
-    width:80%;
-    z-index:2;
-    top: -19%;
-}
- */
 #Movies {
   display: block;
   grid-area: Movies;
@@ -401,39 +334,7 @@ option {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-rows: auto;
-  /* display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
-    width: 70vw; */
 }
-/*
-
-.theMovie .cover{
-    height: 70%;
-    width: 20%;
-    border-radius: 40px;
-    box-shadow: 0px 0px 30px rgba(0,0,0,0.25);
-    position: relative;
-    /* margin: 5% auto; 
-}
-
-.foundMovie .cover:before {
-    content:"";
-    height: 50%;
-    width: 50%;
-    border-radius: 40px;
-    position:absolute;
-    top:0;
-    right:0;
-    background: linear-gradient(180deg,rgba(107,107,107,0.03)48.33%, rgba(46,47,46,0.52)84.27%);
-}
-
-.foundMovie .cover img{
-    height: 50%;
-    width: 50%;
-    border-radius: 40px;
-} */
 
 .moviePage {
   display: none;
@@ -450,7 +351,6 @@ option {
 .infoFirstViewBack{
   position: relative;
   z-index:1;
-  /* margin: 2% 3%; */
 }
 .infoFirstViewBack::before {
   content: "";
@@ -459,7 +359,6 @@ option {
   left: 0;
   height: 100%;
   width: 100%;
-  /* border-radius: 15px; */
   background-image: url("img/backgroundHomepage.jpg");
   filter: brightness(45%);
   background-size: cover;
@@ -477,24 +376,14 @@ option {
 .infoContainer {
   grid-area: infoContainer;
   height: 88vh;
-  /* margin: 2% 3%; */
-  /* filter: brightness(70%); */
   display: grid;
   grid-template-columns: 1.5fr 4fr;
   grid-template-rows: 100%;
   grid-template-areas: "movieCover infoMovie";
-  /* border-radius: 15px; */
-  /* box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; */
   position: relative;
 }
-
-
-
 .movieImg {
-  /* margin-right: 3%;   */
   grid-area: movieCover;
-  /* width: 100%; */
-  /* height: 100%; */
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -509,7 +398,6 @@ option {
 
 .infoMovie {
   grid-area: infoMovie;
-  /* margin-left: 20px; */
   padding: 13px 30px;
 }
 .infoMovie h3 {
@@ -520,7 +408,7 @@ option {
 
 .infoMovie h3, p,.scoreMovie{
   color: white;
-  font-weight: 650;
+  font-weight: 500;
 }
 
 .subtitles {
@@ -574,7 +462,6 @@ option {
   align-content: center;
   flex-direction: column;
   border-radius: 15px;
-  /* box-shadow: 6px 6px 10px #ccc, 6px 6px 20px #ccc; */
   margin: 5%;
   position: relative;
 }
@@ -590,7 +477,6 @@ option {
   height: 100%;
   width: 100%;
   border-radius: 15px;
-  /* background-image: url("img/backgroundHomepage.jpg"); */
   background-color:rgba(73, 148, 63, 0.27);
   filter: brightness(35%);
 } 
@@ -603,21 +489,6 @@ option {
   position: relative;
   margin: 5% auto;
 }
-
-/* .coverInfoItems:before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(107, 107, 107, 0.03) 48.33%,
-    rgba(46, 47, 46, 0.52) 84.27%
-  );
-} */
 
 .coverInfoItems img {
   height: 100%;
@@ -742,11 +613,15 @@ footer {
 }
 
 h2 {
-  /* margin-top: 30px; */
   color: white;
   font-size: 1.5em;
   font-weight: 100px;
   font-family: "Montserrat", bold;
+}
+.infoData{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
 }
 
 @media only screen and (max-width:600px){
@@ -769,6 +644,7 @@ h2 {
   overflow: hidden;
 }
 .socialMedia {
+  margin-top: 0;
   display: flex;
   flex-direction: column;
   align-self: flex-start;
@@ -779,19 +655,17 @@ h2 {
   font-size: 25px;
 }
 .homePage .imageHome {
-  height: 35%;
+  height: 27%;
   display: flex;
   justify-content: center;
 }
 .imageHome img {
-  /* height: 0;ffffff fe ddsdnnsd   */
   width: 36%;
   margin-left: 0;
   margin-bottom: 15px;
 }
 
 .homePage .information {
-  /* grid-area: info; lll jjjj*/
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -799,7 +673,6 @@ h2 {
   padding: 0 8%;
 }
 .title {
-  /* width: 80%; ggghdffdfnhgn*/
   text-align: center;
   font-size: 2.3em;
   font-family: "Lemon", cursive;
@@ -808,7 +681,6 @@ h2 {
   width: 100%;
 }
 .paragraph {
-  /* width: 80%; ddsfdgbgbgfddddsdffdfddfdb*/
   width: 100%;
   text-align: justify;
   font-size: 2.5em;
@@ -821,8 +693,125 @@ h2 {
 .container .search .searchBar {
   width: 80%;
   justify-content: space-between;
+  margin: 15px;
 }
 .container .search .searchText {
-    width: 70%;}
-  
+    width: 70%;
+  }
+.container .filter {
+  flex-direction: column;
+  padding: 0 10px 10px 10px;
+}
+.container .movieNumber {
+  margin: 10px auto 0;
+  text-align: center;
+}
+.name {
+  font-size: 1.3em;
+}
+.title {
+  font-size: 1.4em;
+}
+.paragraph {
+  font-size: 1.9em;
+  margin-top: 8px;
+}
+.infoContainer {
+  grid-area: infoContainer;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 28% 72%;
+  grid-template-areas:
+      "movieCover"
+      "infoMovie";
+  position: relative;
+  height: 100vh;
+}
+
+.movieImg {
+  align-items: flex-start;
+}
+.movieImg img {
+  width: 120px;
+}
+.infoMovie {
+  grid-area: infoMovie;
+  padding: 0 18px;
+}
+.infoMovie h3 {
+  font-size: 1.7em;
+  text-align: center;
+}
+
+.subtitles {
+    font-size: 1.5em;
+}
+.parag {
+  font-family: "Montserrat", bold;
+  font-size: 1em;
+}
+.titleInfoItems {
+    font-size: 1.4em;
+  }
+ .movieTop {
+    margin: 20px auto;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titleTop2 {
+  font-size: 2em;
+}
+.movieTop img {
+  width: 80%;
+}
+
+.infoTop {
+    width: 100%;
+    margin: 0;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.textMovie{
+  margin-top: 10px;
+}
+.scoreMovie2 {
+  margin-left: 0; 
+  margin-top: 20px;
+}
+.chartData .titleTop2 {
+  font-size: 1.5em;
+  padding: 7px;
+}
+.chartData2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#donutchartProducer, #donutchart {
+  width: 90%;
+  height: 300px;
+}
+
+#donutchart div, #donutchartProducer div {
+  height: 355px;
+  display: flex;
+  flex-wrap: wrap;
+}
+#donutchart div div #donutchartProducer div div{
+  position: relative;
+  width: 180px;
+  height: 353px;
+}
+.rect{
+  flex-direction: row;
+}
+footer{
+  position: relative;
+}
+
 }

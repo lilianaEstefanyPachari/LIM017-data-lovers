@@ -26,10 +26,6 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
         return -1;
       }
-      // if (parseInt(a[sortBy]) > parseInt(b[sortBy])) {
-      //   return 1;
-      // }
-      // return 0;
     });
   }
   if (sortOrder == "OrdDesc" && sortBy === "rt_score") {
@@ -37,10 +33,6 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (parseInt(a[sortBy]) > parseInt(b[sortBy])) {
         return -1;
       }
-      // if (parseInt(a[sortBy]) < parseInt(b[sortBy])) {
-      //   return 1;
-      // }
-      // return 0;
     });
   }
   if (sortOrder == "OrdAsc" && sortBy !== "rt_score") {
@@ -48,10 +40,6 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (a[sortBy] < b[sortBy]) {
         return -1;
       }
-      // if (a[sortBy] > b[sortBy]) {
-      //   return 1;
-      // }
-      // return 0;
     });
   }
   if (sortOrder == "OrdDesc" && sortBy !== "rt_score") {
@@ -59,10 +47,6 @@ export const sortData = (data, sortBy, sortOrder) => {
       if (a[sortBy] > b[sortBy]) {
         return -1;
       }
-      // if (a[sortBy] < b[sortBy]) {
-      //   return 1;
-      // }
-      // return 0;
     });
   }
 };
