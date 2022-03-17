@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/f9d8950ad1.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lemon&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+  <body>
+    <nav class="nav">
+      <ul class="menu">
+        <li><a href="#" id="homePage">Homepage</a></li>
+        <li>
+          <a href="#">Discover</a>
+          <ul class="menuVertical">
+            <li><a href="#" id="topMovies"> Top 10 Studio Ghibli Movies </a></li>
+            <li><a href="#" id="dataMovies"> Discover the Ghibli World data </a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <section class="homePage">
+      <div class="socialMedia">
+        <a
+          href="https://www.ghibli.jp/"
+          target="_blank"
+          class="fa-solid fa-globe"
+        >
+        </a>
+        <a
+          href="https://twitter.com/JP_GHIBLI"
+          target="_blank"
+          class="fa-brands fa-twitter"
+        >
+        </a>
+      </div>
+      <div class="imageHome">
+        <img src="img/totoro.png" alt="totoro" />
+      </div>
+      <div class="information">
+        <div class="title">
+          <h1>Ghibli Lovers</h1>
+        </div>
+        <div class="paragraph">
+          <p>
+            Studio Ghibli is a Japanese animation studio, considered by
+            specialized critics and many moviegoers, as one of the best
+            animation studios in the world today.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="container">
+      <div class="search">
+        <div class="searchBar">
+          <input
+            type="text"
+            class="searchText"
+            id="searchMovie"
+            placeholder="Search Movie"
+          />
+          <a class="boton" id="btnSearch">
+            <i class="material-icons-outlined" id="btnSearchMovie"> search </i>
+          </a>
+        </div>
+      </div>
+      <div class="filter">
+        <select id="selectOrder" class="">
+          <option selected disabled>A-Z</option>
+          <option value="OrdAsc">Upward</option>
+          <option value="OrdDesc">Falling</option>
+        </select>
+        <select id="selectYear">
+          <option selected disabled>Year</option>
+          <option value="OrdDesc">Most Recent</option>
+          <option value="OrdAsc">Most Older</option>
+        </select>
+        <select id="selectScore">
+          <option selected disabled>Score</option>
+          <option value="OrdDesc">Highest Score</option>
+          <option value="OrdAsc">Lowest Score</option>
+        </select>
+        <button id="noFilter">Clear Filter</button>
+      </div>
+      <div class="movieNumber">
+        <h3 id="numberOfMovies"></h3>
+      </div>
+      <div class="listOfMovies" id="listOfMovies"></div>
+      <div class="Movies" id="Movies">
+        <div class="theMovie" id="theMovie"></div>
+      </div>
+    </section>
+    <section class="moviePage">
+      <div class="movieInformation">
+       <div class="infoFirstViewBack">
+        <div class="infoFirstView">
+         <div class="infoContainerBack">
+           <div class="infoContainer"></div>
+         </div>
+       </div>
+      </div>
+        <div>
+          <h1 class="titleInfoItems">People</h1>
+          <div class="people"></div>
+        </div>
+        <div>
+          <h1 class="titleInfoItems">Locations</h1>
+          <div class="locations"></div>
+        </div>
+        <div>
+          <h1 class="titleInfoItems">Vehicles</h1>
+          <div class="vehicles"></div>
+        </div>
+      </div>
+    </section>
+    <section class="dataStatics">
+      <h2 class="titleTop2">Top 10 Studio Ghibli Movies</h2>
+      <div class="infoData">
+      </div>
+    </section>
+      <section class="chartData">
+        <h2 class="titleTop2">Discover the Ghibli World data</h2>
+        <div class="chartData2">
+        <div id="donutchart">
+        </div>
+        <div id="donutchartProducer">
+        </div>
+      </div>
+      </section>
+    <footer>
+      <h2>Made by Karina y Liliana</h2>
+    </footer>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
+
+
