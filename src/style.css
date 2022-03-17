@@ -27,17 +27,17 @@ body {
 }
 
 #donutchart{
-  width: 50%; 
+  width: 50%;
   height: 500px;
 }
 
 #donutchartProducer{
-  width: 50%; 
+  width: 50%;
   height: 500px;
 }
 
 .nav {
-  grid-area: nav; 
+  grid-area: nav;
   background: #82b33e;
   position: relative;
   z-index:2;
@@ -631,6 +631,7 @@ h2 {
     justify-content: space-between;
  }
  .homePage {
+  display:block;
   grid-area: welcome;
   display: flex;
   flex-direction: column;

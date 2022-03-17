@@ -240,6 +240,12 @@ function dataTop() {
   showData(topData, infoData);
 }
 
+//Homepage
+const homePage = document.getElementById("homePage");
+homePage.addEventListener("click", home);
+function home() {
+  location.reload();
+}
 //llamando a la funcion para estadistica por productores
 const directorData = directorStats(data.films,"director");
 const producerData = directorStats(data.films,"producer");
@@ -250,7 +256,7 @@ const entriesProducer = Object.entries(producerData);
 const dataMovies = document.getElementById("dataMovies");
 dataMovies.addEventListener("click", dataTop2);
 function dataTop2() {
-document.querySelector(".container").style.display = "none";
+  document.querySelector(".container").style.display = "none";
   document.querySelector(".chartData").style.display = "block";
   document.querySelector(".dataStatics").style.display = "none";
   document.querySelector(".moviePage").style.display = "none";
